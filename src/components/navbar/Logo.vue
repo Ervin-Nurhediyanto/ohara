@@ -1,7 +1,7 @@
 <template>
-  <div class="col-2">
-    <div class="w-50 p-0">
-      <img :src="logo" class="w-100 c-pointer"/>
+  <div class="col-6 col-lg-2 m-0">
+    <div class="w-75 p-0">
+      <img :src="logo" @click.prevent="handleMenu" class="w-100 c-pointer"/>
     </div>
   </div>
 </template>
@@ -14,6 +14,11 @@ export default {
   data () {
     return {
       logo: logo
+    }
+  },
+  methods: {
+    handleMenu () {
+      this.$emit('handleMenu', 'Home')
     }
   }
 }

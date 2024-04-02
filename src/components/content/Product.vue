@@ -1,5 +1,5 @@
 <template>
-  <div class="col-8 h-25vh d-flex pt-4">
+  <div class="col-12 col-lg-8 h-25vh d-flex pt-4">
     <div class="row h-25vh">
       <div class="col-12">
         <BtnCategory :display="display" :isDropdown="isDropdown" v-on:handleDropdown="handleDropdown"/>

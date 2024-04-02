@@ -34,6 +34,9 @@
 .h-5vh {
   height: 5vh;
 }
+.h-4vh {
+  height: 4vh;
+}
 
 .c-pointer {
   cursor: pointer;

@@ -1,6 +1,6 @@
 <template>
-  <div class="col-2">
-    <div class="col-7 bg-orange p-1 mt-3 rounded-4 text-center text-white shadow-sm c-pointer">
+  <div class="col-6 col-lg-2 m-0 d-flex align-items-center justify-content-center">
+    <div class="col-10 col-lg-7 bg-orange p-1 mt-lg-0 rounded-4 text-center text-white shadow-sm c-pointer">
       <b>Masuk/Daftar</b>
     </div>
   </div>

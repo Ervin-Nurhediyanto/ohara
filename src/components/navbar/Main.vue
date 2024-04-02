@@ -1,11 +1,14 @@
 <template>
   <div class="row m-0 p-0 h-10vh shadow-sm">
-    <Logo/>
-    <div class="col-8">
+    <Logo v-on:handleMenu="handleMenu"/>
+    <div class="d-none d-lg-inline col-lg-8">
       <div class="row h-10vh d-flex align-items-center">
-        <div class="col-3"><span class="c-pointer">Produk OHARA</span></div>
-        <div class="col-3"><span class="c-pointer">Riwayat Pembelian</span></div>
-        <div class="col-3"><span class="c-pointer">Cek Status Pembelian</span></div>
+        <div v-for="item in menu" :key="item" class="col-1">
+          <span class="c-pointer" @click.prevent="handleMenu(item)">
+            <span v-if="select === item" class="text-danger">{{ item }}</span>
+            <span v-else>{{ item }}</span>
+          </span>
+        </div>
       </div>
     </div>
     <Auth/>
@@ -19,11 +22,26 @@ import Auth from './Auth.vue'
 export default {
   name: 'Navbar-Main',
   data () {
-    return {}
+    return {
+      select: '',
+      menu: [
+        'About',
+        'FAQ',
+        'Produk'
+      ]
+    }
   },
   components: {
     Logo,
     Auth
+  },
+  methods: {
+    handleMenu (menu) {
+      this.$router.replace({
+        name: menu
+      })
+      this.select = menu
+    }
   }
 }
 </script>
