@@ -1,14 +1,10 @@
 {
-  "name": "ohara",
+  "name": "ohara-frontend",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "20.x"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
-    // "build": "vue-cli-service build",
-    "build": "npm run build",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
