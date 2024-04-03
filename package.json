@@ -1,5 +1,5 @@
 {
-  "name": "ohara-frontend",
+  "name": "ohara_fe",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,8 +8,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^1.6.8",
-    "bootstrap": "^5.3.3",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",

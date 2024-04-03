@@ -1,4 +1,4 @@
-# ohara-frontend
+# ohara_fe
 
 ## Project setup
 ```
