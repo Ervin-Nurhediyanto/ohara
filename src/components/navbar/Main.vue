@@ -1,9 +1,9 @@
 <template>
   <div class="row m-0 p-0 h-10vh shadow-sm">
     <Logo v-on:handleMenu="handleMenu"/>
-    <div class="d-none d-lg-inline col-lg-8">
+    <div class="d-none d-md-inline d-lg-inline col-md-6 col-lg-8">
       <div class="row h-10vh d-flex align-items-center">
-        <div v-for="item in menu" :key="item" class="col-1">
+        <div v-for="item in menu" :key="item" class="col-md-2 col-lg-1">
           <span class="c-pointer" @click.prevent="handleMenu(item)">
             <span v-if="select === item" class="text-danger">{{ item }}</span>
             <span v-else>{{ item }}</span>

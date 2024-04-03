@@ -38,6 +38,10 @@
   height: 4vh;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .c-pointer {
   cursor: pointer;
 }
@@ -49,6 +53,17 @@
   background-color: #F57D1F;
 }
 
+.font-size-12px {
+  font-size: 12px;
+}
 .font-size-10px {
   font-size: 10px;
+}
+
+.overflow {
+  overflow: scroll
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

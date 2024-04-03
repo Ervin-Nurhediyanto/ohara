@@ -1,23 +1,23 @@
 <template>
-  <div class="row h-90vh m-0 p-0 bg-grey">
+  <div class="row h-90vh m-0 p-0 overflow scrollbar-none bg-grey">
     <div class="d-none d-lg-flex col-2 h-25vh"></div>
     <ContentProduct/>
     <div class="d-none d-lg-flex col-2 h-25vh"></div>
-    <div class="col-2 h-65vh"></div>
-    <div class="col-8 h-65vh">
+    <div class="d-none d-lg-flex col-2 h-65vh"></div>
+    <div class="col-12 col-md-8 col-lg-8 h-65vh">
       <div class="row h-65vh pt-5">
-        <div v-for="fiture in fitures" :key="fiture" class="col-4">
+        <div v-for="fiture in fitures" :key="fiture" class="col-10 col-md-6 col-lg-4 mb-2">
           <CardFiture :fiture="fiture"/>
         </div>
       </div>
     </div>
-    <div class="col-2 h-65vh"></div>
+    <div class="d-none d-lg-flex col-2 h-65vh"></div>
   </div>
 </template>
 
 <script>
 import ContentProduct from './Product.vue'
-import CardFiture from './product/card/fiture.vue'
+import CardFiture from './product/card/Fiture.vue'
 
 export default {
   name: 'Content-Main',

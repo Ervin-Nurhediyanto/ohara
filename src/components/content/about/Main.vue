@@ -1,20 +1,18 @@
 <template>
-  <div class="p-0">
-    <Content/>
+  <div class="row h-90vh m-0 p-0 bg-grey">
+    About OHARA
   </div>
 </template>
 
 <script>
-import Content from '../components/content/Main.vue'
 
 export default {
-  name: 'Home',
+  name: 'Content-About-Main',
   data () {
     return {
     }
   },
   components: {
-    Content
   }
 }
 </script>

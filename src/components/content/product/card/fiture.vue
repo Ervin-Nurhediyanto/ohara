@@ -6,7 +6,7 @@
     </div>
     <div>
       <ul v-for="item in fiture.items" :key="item" class="h-4vh">
-        <li>{{ item }}</li>
+        <li class="font-size-12px">{{ item }}</li>
       </ul>
     </div>
     <hr>

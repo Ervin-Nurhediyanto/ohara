@@ -1,18 +1,16 @@
 <template>
-  <div id="carouselProduct" class="carousel slide" data-bs-ride="carousel">
-    <div v-for="item in carousel.items" :key="item" class="carousel-inner">
-      <div :class="'carousel-item ' + item.style">
-        <img :src="item.image" class="d-block w-100" alt="Paket Kelas 4">
-      </div>
-    </div>
-    <BtnPrev v-on:handlePrevCarousel="handlePrevCarousel"/>
-    <BtnNext v-on:handleNextCarousel="handleNextCarousel"/>
+  <div>
+    <TemplateCar
+    :carousel="carousel"
+    :alt="'Paket Kelas 8'"
+    v-on:handleNextCarousel="handleNextCarousel"
+    v-on:handlePrevCarousel="handlePrevCarousel"
+    />
   </div>
 </template>
 
 <script>
-import BtnNext from '../button/Carousel-Next.vue'
-import BtnPrev from '../button/Carousel-Prev.vue'
+import TemplateCar from './Template-Carousel.vue'
 
 import image01 from '../../../../assets/4th_grade_01.png'
 import image02 from '../../../../assets/4th_grade_02.png'
@@ -37,8 +35,7 @@ export default {
     }
   },
   components: {
-    BtnNext,
-    BtnPrev
+    TemplateCar
   },
   methods: {
     handleNextCarousel () {
