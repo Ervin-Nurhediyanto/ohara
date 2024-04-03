@@ -1,13 +1,17 @@
 <template>
-  <div class="col-12 col-lg-8 h-25vh d-flex pt-4 overflow scrollbar-none">
-    <div class="row h-25vh">
+  <div :class="'col-12 col-sm-12 col-lg-8 d-flex pt-4 overflow scrollbar-none ' + style + content_h">
+    <div class="row h-30vh">
       <div class="col-12">
-        <BtnCategory :display="display" :isDropdown="isDropdown" v-on:handleDropdown="handleDropdown"/>
+        <BtnCategory
+          :display="display"
+          :isDropdown="isDropdown"
+          v-on:handleDropdown="handleDropdown"
+          :style="style + btn_h"/>
         <DropdownCategoty :isDropdown="isDropdown" v-on:selectDropdown="selectDropdown"/>
       </div>
     </div>
-    <div class="h-25vh" v-for="i in 2" :key="i">
-      <Carousel :isSelect="isSelect" :display="display"/>
+    <div :class="'' + content_h" v-for="i in 2" :key="i">
+      <Carousel :isSelect="isSelect" :display="display" :style="content_h" :card_h="card_h"/>
     </div>
   </div>
 </template>
@@ -19,6 +23,7 @@ import Carousel from './product/carousel/Main.vue'
 
 export default {
   name: 'Content-Product',
+  props: ['style', 'content_h', 'btn_h', 'card_h'],
   data () {
     return {
       isDropdown: false,

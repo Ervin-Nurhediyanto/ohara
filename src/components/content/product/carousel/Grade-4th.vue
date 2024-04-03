@@ -1,6 +1,7 @@
 <template>
   <div>
     <TemplateCar
+    :card_h="card_h"
     :carousel="carousel"
     :alt="'Paket Kelas 4'"
     v-on:handleNextCarousel="handleNextCarousel"
@@ -17,6 +18,7 @@ import image02 from '../../../../assets/4th_grade_02.png'
 
 export default {
   name: 'Content-Product-Carousel-4th',
+  props: ['card_h'],
   data () {
     return {
       carousel: {

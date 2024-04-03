@@ -1,6 +1,6 @@
 <template>
-  <div v-if="isSelect" class="row mx-3 p-1">
-    <Carousel4th v-if="display == 'Kelas 4'"/>
+  <div v-if="isSelect" :class="'row mx-3 p-1 ' + style">
+    <Carousel4th v-if="display == 'Kelas 4'" :card_h="card_h"/>
     <Carousel5th v-if="display == 'Kelas 5'"/>
     <Carousel6th v-if="display == 'Kelas 6'"/>
     <Carousel7th v-if="display == 'Kelas 7'"/>
@@ -17,7 +17,7 @@ import Carousel8th from '../../product/carousel/Grade-8th.vue'
 
 export default {
   name: 'Content-Product-Carousel-Main',
-  props: ['isSelect', 'display'],
+  props: ['isSelect', 'display', 'style', 'card_h'],
   data () {
     return {}
   },

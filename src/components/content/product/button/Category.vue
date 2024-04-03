@@ -1,6 +1,6 @@
 <template>
   <button
-    class="h-5vh btn btn-danger dropdown-toggle"
+    :class="'btn btn-danger ' + style"
     @click.prevent="handleDropdown">
     {{ display }}
   </button>
@@ -10,7 +10,7 @@
 
 export default {
   name: 'Content-Product-Button-Categoty',
-  props: ['display', 'isDropdown'],
+  props: ['display', 'isDropdown', 'style'],
   data () {
     return {
     }

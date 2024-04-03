@@ -1,13 +1,23 @@
 <template>
   <div class="row h-90vh m-0 p-0 overflow scrollbar-none bg-grey">
     <div class="d-none d-lg-flex col-2 h-25vh"></div>
-    <ContentProduct/>
+    <!-- Normal Mode -->
+    <ContentProduct :style="style.normal" :content_h="'h-30vh '" :btn_h="'h-5vh '" :card_h="'h-25vh '"/>
+    <!-- Medium Mode -->
+    <ContentProduct :style="style.medium" :content_h="'h-60vh '" :btn_h="'h-10vh '" :card_h="'h-50vh '"/>
     <div class="d-none d-lg-flex col-2 h-25vh"></div>
     <div class="d-none d-lg-flex col-2 h-65vh"></div>
     <div class="col-12 col-md-8 col-lg-8 h-65vh">
-      <div class="row h-65vh pt-5">
-        <div v-for="fiture in fitures" :key="fiture" class="col-10 col-md-6 col-lg-4 mb-2">
-          <CardFiture :fiture="fiture"/>
+      <!-- Normal Mode -->
+      <div :class="'row h-65vh pt-5 ' + style.normal">
+        <div v-for="fiture in fitures" :key="fiture" class="col-12 col-sm-4 col-md-6 col-lg-4 mb-2">
+          <CardFiture :fiture="fiture" :card_h="'h-55vh '" :item_h="'h-4vh'" :btn_h="'h-5vh'"/>
+        </div>
+      </div>
+      <!-- Medium Mode -->
+      <div :class="'row h-65vh pt-5 ' + style.medium">
+        <div v-for="fiture in fitures" :key="fiture" class="col-12 col-sm-4 col-md-6 col-lg-4 mb-2">
+          <CardFiture :fiture="fiture" :card_h="'h-95vh '" :item_h="'h-9vh'" :btn_h="'h-10vh'"/>
         </div>
       </div>
     </div>
@@ -23,6 +33,10 @@ export default {
   name: 'Content-Main',
   data () {
     return {
+      style: {
+        normal: 'd-flex d-sm-none d-md-flex d-lg-flex ',
+        medium: 'd-none d-sm-flex d-md-none d-lg-none '
+      },
       fitures: [
         {
           title: 'OHARA Private Online',

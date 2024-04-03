@@ -1,6 +1,6 @@
 <template>
   <div :class="'carousel-item' + item.style">
-    <img :src="item.image" class="h-20vh w-auto" :alt="alt">
+    <img :src="item.image" :class="'w-auto ' + style" :alt="alt">
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 
 export default {
   name: 'Content-Card-Carousel',
-  props: ['item', 'alt'],
+  props: ['item', 'alt', 'style'],
   data () {
     return {}
   },
