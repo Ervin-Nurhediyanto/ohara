@@ -1,5 +1,19 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="p-0">
+    <Content/>
   </div>
 </template>
+
+<script>
+import Content from '../components/content/about/Main.vue'
+
+export default {
+  name: 'About',
+  data () {
+    return {}
+  },
+  components: {
+    Content
+  }
+}
+</script>
