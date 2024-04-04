@@ -1,5 +1,5 @@
 <template>
-  <div :class="'carousel-item' + item.style">
+  <div :class="'carousel-item ' + item.style">
     <img :src="item.image" :class="'w-auto ' + style" :alt="alt">
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div :class="'col-12 col-sm-12 col-lg-8 d-flex pt-4 overflow scrollbar-none ' + style + content_h">
-    <div class="row h-30vh">
+    <div class="col-3 col-sm-2 col-md-2 col-lg-1 h-30vh">
       <div class="col-12">
         <BtnCategory
           :display="display"
