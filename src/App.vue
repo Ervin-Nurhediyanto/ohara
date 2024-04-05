@@ -1,6 +1,6 @@
 <template>
-  <div class="row m-0 p-0 h-100vh overflow scrollbar-none">
-    <Navbar/>
+  <div class="row m-0 p-0 h-100vh overflow scrollbar-none bg-grey">
+    <Navbar v-on:handleMenuBar="handleMenuBar"/>
     <router-view class="shadow-sm"/>
     <Footer/>
   </div>
@@ -13,11 +13,14 @@ import Footer from './components/footer/Main.vue'
 export default {
   name: 'App',
   data () {
-    return {}
+    return {
+    }
   },
   components: {
     Navbar,
     Footer
+  },
+  methods: {
   }
 }
 

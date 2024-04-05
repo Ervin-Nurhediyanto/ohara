@@ -11,11 +11,17 @@
 
 export default {
   name: 'Content-Home-Main',
+  props: ['isMenuBar'],
   data () {
     return {
     }
   },
   components: {
+  },
+  methods: {
+    handleMenuBar () {
+      this.$emit('handleMenuBar')
+    }
   }
 }
 </script>
