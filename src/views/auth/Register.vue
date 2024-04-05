@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import Content from '../components/content/home/Main.vue'
+import Content from '../../components/content/auth/register/Main.vue'
 
 export default {
-  name: 'Home',
+  name: 'Auth-Register',
   data () {
     return {}
   },
