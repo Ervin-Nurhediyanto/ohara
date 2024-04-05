@@ -4,7 +4,7 @@
       <Logo v-on:handleMenu="handleMenu"/>
       <div class="d-none d-sm-inline col-sm-7 col-md-6 col-lg-8">
         <div class="row h-10vh d-flex align-items-center">
-          <div v-for="item in menu" :key="item" class="col-sm-2 col-md-2 col-lg-1 mx-1 mt-lg-3">
+          <div v-for="item in menu" :key="item" class="col-sm-2 col-md-2 col-lg-1 mx-1 mt-md-2 mt-lg-3">
             <span class="c-pointer" @click.prevent="handleMenu(item.to)">
               <span v-if="select === item.title" class="text-danger"><b>{{ item.title }}</b></span>
               <span v-else><b>{{ item.title }}</b></span>
