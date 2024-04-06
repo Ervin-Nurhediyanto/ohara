@@ -1,6 +1,5 @@
 <template>
   <div v-if="isMenuBar" class="d-inline d-sm-none p-0 m-0 bg-transparent">
-
     <div
       v-for="item in menu_bar"
       :key="item"

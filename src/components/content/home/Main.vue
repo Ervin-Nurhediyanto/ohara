@@ -56,4 +56,10 @@ export default {
 .fs-10px {
   font-size: 10px
 }
+
+/* @media (max-width: 1200px) {
+  .bg-home {
+    background-size: cover;
+  }
+} */
 </style>

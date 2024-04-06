@@ -1,22 +1,23 @@
 <template>
-  <div class="row h-90vh m-0 p-0 justify-content-center bg-grey">
+  <div class="row h-90vh m-0 p-0 justify-content-center overflow scrollbar-none bg-grey">
     <div class="d-flex col-lg-4 justify-content-center align-items-center">
-      <div class="d-flex col-12 h-60vh justify-content-center border border-2 rounded-4 bg-orange">
-        <div class="fs-1 text-white">Register</div>
+      <div class="d-flex col-12 h-60vh justify-content-center register">
+        <FRegister/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import FRegister from '../../../base/form/F-Register.vue'
 
 export default {
   name: 'Content-Register-Main',
   data () {
-    return {
-    }
+    return {}
   },
   components: {
+    FRegister
   },
   methods: {
   }
