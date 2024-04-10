@@ -1,17 +1,43 @@
 <template>
-  <div class="row h-30vh m-0 p-0 bg-dark">
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,96L24,112C48,128,96,160,144,154.7C192,149,240,107,288,101.3C336,96,384,128,432,160C480,192,528,224,576,213.3C624,203,672,149,720,138.7C768,128,816,160,864,186.7C912,213,960,235,1008,234.7C1056,235,1104,213,1152,176C1200,139,1248,85,1296,69.3C1344,53,1392,75,1416,85.3L1440,96L1440,320L1416,320C1392,320,1344,320,1296,320C1248,320,1200,320,1152,320C1104,320,1056,320,1008,320C960,320,912,320,864,320C816,320,768,320,720,320C672,320,624,320,576,320C528,320,480,320,432,320C384,320,336,320,288,320C240,320,192,320,144,320C96,320,48,320,24,320L0,320Z"></path></svg> -->
+  <div class="row m-0 p-0 text-white bg-dark">
+    <div class="d-flex row m-0 p-0 h-25vh justify-content-center">
+      <div class="col-lg-8 m-0 p-0">
+        <div class="row h-20vh m-0 p-0">
+          <TFL/>
+          <TFC/>
+          <TFR/>
+          <div class="d-flex col-lg-12 h-5vh m-0 p-2 justify-content-end bg-dark">
+            <div class="mx-2">
+              <font-awesome-icon :icon="['fab', 'facebook']" />
+            </div>
+            <div class="mx-2">
+              <font-awesome-icon :icon="['fab', 'instagram']" />
+            </div>
+            <div class="mx-2">
+              <font-awesome-icon :icon="['fab', 'youtube']" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import TFL from './template/T-F-Left.vue'
+import TFC from './template/T-F-Center.vue'
+import TFR from './template/T-F-Right.vue'
 
 export default {
   name: 'Footer-Main',
   data () {
     return {}
   },
-  components: {}
+  components: {
+    TFL,
+    TFC,
+    TFR
+  }
 }
 
 </script>

@@ -22,6 +22,9 @@
 .h-50vh {
   height: 50vh;
 }
+.h-45vh {
+  height: 45vh;
+}
 .h-40vh {
   height: 40vh;
 }
@@ -58,6 +61,12 @@
 .h-4vh {
   height: 4vh;
 }
+.h-3vh {
+  height: 3vh;
+}
+.h-2vh {
+  height: 2vh;
+}
 
 .w-auto {
   width: auto;
@@ -80,10 +89,10 @@
   background-color: transparent;
 }
 
-.font-size-12px {
+.fs-12px {
   font-size: 12px;
 }
-.font-size-10px {
+.fs-10px {
   font-size: 10px;
 }
 

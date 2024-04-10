@@ -1,6 +1,6 @@
 <template>
   <div class="row m-0 p-0 sticky-top">
-    <header class="m-0 p-0 shadow-md bg-blue">
+    <header class="m-0 p-0 shadow-md bg-white">
       <Logo class="" v-on:handleMenu="handleMenu"/>
       <input type="checkbox" name="" class="d-flex d-lg-none mx-2 btn-nav" />
       <div class="nav">
