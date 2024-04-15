@@ -89,6 +89,16 @@
   background-color: transparent;
 }
 
+.bs-5px {
+  padding: 5px;
+  box-shadow: 5px 5px;
+}
+
+.bs-3px {
+  padding: 3px;
+  box-shadow: 3px 3px;
+}
+
 .fs-12px {
   font-size: 12px;
 }

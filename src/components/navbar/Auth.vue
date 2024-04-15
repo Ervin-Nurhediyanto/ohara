@@ -5,7 +5,6 @@
       <b>Login</b>
     </div>
     <MenuBar class="d-flex d-sm-none" v-on:handleClick="handleMenuBar"/>
-    <!-- <font-awesome-icon :icon="['fab', 'instagram']" /> -->
   </div>
 </template>
 
