@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import logo from '../../../assets/logo_ohara.png'
+import logo from '../../../assets/logo_ohara_02.png'
 
 export default {
   name: 'Template-Footer-Left',

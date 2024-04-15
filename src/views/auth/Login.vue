@@ -10,7 +10,8 @@ import Content from '../../components/content/auth/login/Main.vue'
 export default {
   name: 'Auth-Login',
   data () {
-    return {}
+    return {
+    }
   },
   components: {
     Content

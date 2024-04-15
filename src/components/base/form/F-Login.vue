@@ -4,13 +4,13 @@
       <h2>Welcome Back!</h2>
       <div class="input-group">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" v-model="form.username" required>
       </div>
       <div class="input-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" v-model="form.password" required>
       </div>
-      <button type="submit">Login</button>
+      <button type="submit" @click.prevent="handleLogin">Login</button>
       <p class="signup-link">Don't have an account?
         <a href="#" @click.prevent="handleRegister">Sign up</a>
       </p>
@@ -19,14 +19,33 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Template-Form-Login',
   data () {
-    return {}
+    return {
+      form: {
+        username: '',
+        password: ''
+      }
+    }
   },
   components: {},
+  computed: {
+    ...mapGetters({
+      username: 'username'
+    })
+  },
   methods: {
+    ...mapActions(['login']),
+    handleLogin () {
+      this.login(this.form)
+        .then((res) => {
+          alert('hallo ' + this.username)
+          console.log(res.data)
+        })
+    },
     handleRegister () {
       this.$router.replace({
         name: 'Register'

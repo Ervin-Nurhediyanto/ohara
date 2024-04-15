@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import logo from '../../assets/logo_ohara.png'
+import logo from '../../assets/logo_ohara_01.png'
 
 export default {
   name: 'Navbar-Logo',

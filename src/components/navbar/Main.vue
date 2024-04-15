@@ -2,7 +2,7 @@
   <div class="row m-0 p-0 sticky-top">
     <header class="m-0 p-0 shadow-md bg-white">
       <Logo class="" v-on:handleMenu="handleMenu"/>
-      <input type="checkbox" name="" class="d-flex d-lg-none mx-2 btn-nav" />
+      <input type="checkbox" name="" class="d-flex d-lg-none mx-2 btn-nav"/>
       <div class="nav">
         <ol v-for="item in menu" :key="item">
           <li><a href="#" @click.prevent="handleMenu(item.to)">{{ item.title }}</a></li>
