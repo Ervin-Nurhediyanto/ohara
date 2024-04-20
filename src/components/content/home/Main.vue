@@ -45,11 +45,11 @@ export default {
 </script>
 
 <style>
-.bg-home {
+/* .bg-home {
   background-image: url(../../../assets/bg/bg-01.png);
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */
 .box-shadow-2px {
   box-shadow: 2px 2px 0px 0px;
 }
