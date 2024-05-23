@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isSelect" :class="'row mx-3 p-1 ' + style">
+  <div v-if="isSelect" :class="'row mx-0 mx-lg-3 p-1 ' + style">
     <Carousel4th v-if="display == 'Kelas 4'" :card_h="card_h"/>
     <Carousel5th v-if="display == 'Kelas 5'"/>
     <Carousel6th v-if="display == 'Kelas 6'"/>

@@ -38,12 +38,31 @@ export default {
     })
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(['login', 'findRole']),
     handleLogin () {
       this.login(this.form)
         .then((res) => {
-          alert('hallo ' + this.username)
+          // alert('hallo ' + this.username)
           console.log(res.data)
+          console.log('Role ID:')
+          // console.log(res.data.data.roleId)
+          // const roleId = res.data.data.roleId
+          this.findRole(res.data.data.roleId)
+            .then((result) => {
+              const role = result.data.data[0].name
+              if (role === 'TUTOR') {
+                this.$router.replace({
+                  name: 'Dashboard-Tutor'
+                })
+                // this.$router.go('Dashboard-Tutor')
+              }
+              console.log(result.data.data[0].name)
+              // this.$router.go(0)
+              // Go To Dashboard
+              // this.$router.replace({
+              //   name: 'Register'
+              // })
+            })
         })
     },
     handleRegister () {
@@ -100,18 +119,19 @@ export default {
   border: 1px solid #cccccc;
 }
 
-.button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #ffffff;
-  cursor: pointer;
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  background-color: #0056b3;
+button:hover {
+    background-color: #45a049;
 }
 
 .signup-link {

@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import router from '../../router/index'
+import router from '../../router/index'
 
 let url = ''
 if (process.env.VUE_APP_STATUS === 'production') {
@@ -73,7 +73,6 @@ const Users = {
     login (setex, payload) {
       return new Promise((resolve, reject) => {
         axios
-          // .post(process.env.VUE_APP_BASE_URL + '/users/login', payload)
           .post(url + '/users/login', payload)
           .then(res => {
             const user = res.data.data
@@ -81,13 +80,22 @@ const Users = {
             localStorage.setItem('user', user)
             setex.commit('setUsername', user.username)
             localStorage.setItem('username', user.username)
-            // setex.commit('setToken', user.token)
             localStorage.setItem('token', user.token)
             resolve(res)
           })
           .catch(err => {
             reject(err)
           })
+      })
+    },
+    logout () {
+      return new Promise(resolve => {
+        const items = { ...localStorage }
+        Object.keys(items).map(item => {
+          localStorage.removeItem(item)
+        })
+        resolve()
+        router.push('/login')
       })
     }
   }

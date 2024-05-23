@@ -1,17 +1,19 @@
 <template>
   <div class="p-0">
-    <button>Pay</button>
+    <Content/>
   </div>
 </template>
 
 <script>
+import Content from '../../components/content/home/Main.vue'
 
 export default {
-  name: 'Payment',
+  name: 'Home',
   data () {
     return {}
   },
   components: {
+    Content
   },
   methods: {
   }

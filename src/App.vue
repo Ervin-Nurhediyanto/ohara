@@ -1,27 +1,20 @@
 <template>
-  <div class="row m-0 p-0 h-100vh overflow scrollbar-none bg-grey">
-    <Navbar v-on:handleMenuBar="handleMenuBar"/>
-    <router-view class="shadow-sm"/>
-    <Footer/>
+  <div class="row m-0 p-0 overflow scrollbar-none">
+  <!-- <div class="row m-0 p-0 h-100vh overflow scrollbar-none bg-grey"> -->
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Navbar from './components/navbar/Main.vue'
-import Footer from './components/footer/Main.vue'
 
 export default {
   name: 'App',
   data () {
-    return {
-    }
+    return {}
   },
-  components: {
-    Navbar,
-    Footer
-  },
-  methods: {
-  }
+  components: {},
+  computed: {},
+  methods: {}
 }
 
 </script>

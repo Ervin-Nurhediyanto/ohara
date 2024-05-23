@@ -7,10 +7,10 @@ import './styles/main.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faEnvelope, faHouse, faUser, faCalendar, faPersonRunning } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp, faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faPhone, faEnvelope, faWhatsapp, faFacebook, faInstagram, faYoutube)
+library.add(faPhone, faEnvelope, faHouse, faUser, faCalendar, faPersonRunning, faWhatsapp, faFacebook, faInstagram, faYoutube)
 
 createApp(App).use(store).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

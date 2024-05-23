@@ -1,6 +1,7 @@
 <template>
-  <div :class="'col-12 col-sm-12 col-lg-8 d-flex pt-4 overflow scrollbar-none ' + style + content_h">
-    <div class="col-3 col-sm-2 col-md-2 col-lg-1 h-30vh">
+  <div :class="'col-12 col-sm-12 col-lg-10 h-25vh d-flex pt-2' + style + content_h">
+    <!-- <div class="col-3 col-sm-2 col-md-2 col-lg-1 h-30vh"> -->
+    <div class="col-3 col-sm-2 col-md-2 col-lg-2 h-25vh bg-warning">
       <div class="col-12">
         <BtnCategory
           :display="display"
@@ -10,7 +11,7 @@
         <DropdownCategoty :isDropdown="isDropdown" v-on:selectDropdown="selectDropdown"/>
       </div>
     </div>
-    <div :class="'' + content_h" v-for="i in 2" :key="i">
+    <div :class="'' + content_h" v-for="i in 1" :key="i">
       <Carousel :isSelect="isSelect" :display="display" :style="content_h" :card_h="card_h"/>
     </div>
   </div>

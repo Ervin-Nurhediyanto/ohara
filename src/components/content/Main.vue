@@ -1,13 +1,14 @@
 <template>
   <div class="row h-90vh m-0 p-0 overflow scrollbar-none bg-grey">
-    <div class="d-none d-lg-flex col-2 h-25vh"></div>
+    <div class="d-none d-lg-flex col-2 col-lg-1 h-25vh bg-success"></div>
     <!-- Normal Mode -->
-    <ContentProduct :style="style.normal" :content_h="'h-30vh '" :btn_h="'h-5vh '" :card_h="'h-25vh '"/>
+    <ContentProduct :style="style.normal" :content_h="'h-25vh '" :btn_h="'h-5vh '" :card_h="'h-100vh '"/>
     <!-- Medium Mode -->
     <ContentProduct :style="style.medium" :content_h="'h-60vh '" :btn_h="'h-10vh '" :card_h="'h-50vh '"/>
-    <div class="d-none d-lg-flex col-2 h-25vh"></div>
-    <div class="d-none d-lg-flex col-2 h-65vh"></div>
-    <div class="col-12 col-md-8 col-lg-8 h-65vh">
+    <div class="d-none d-lg-flex col-2 col-lg-1 h-25vh bg-dark"></div>
+    <div class="d-none d-lg-flex col-2 col-lg-1 h-75vh bg-warning"></div>
+    <!-- <div class="col-12 col-md-8 col-lg-8 h-65vh"> -->
+    <div class="col-12 col-md-8 col-lg-10 h-75vh bg-info">
       <!-- Normal Mode -->
       <div :class="'row h-65vh pt-5 ' + style.normal">
         <div v-for="fiture in fitures" :key="fiture" class="col-12 col-sm-4 col-md-6 col-lg-4 mb-2">
@@ -21,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="d-none d-lg-flex col-2 h-65vh"></div>
+    <div class="d-none d-lg-flex col-2 col-lg-1 h-75vh bg-danger"></div>
   </div>
 </template>
 

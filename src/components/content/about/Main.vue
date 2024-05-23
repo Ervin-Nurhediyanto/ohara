@@ -1,5 +1,5 @@
 <template>
-  <div class="row h-90vh m-0 p-0">
+  <div class="row h-110vh m-0 p-0">
     <div class="d-flex row m-0 p-0 justify-content-center bg-about">
       <div class="d-flex justify-content-center align-items-end">
         <b class="fs-1 ff-Impact">About Us</b>
