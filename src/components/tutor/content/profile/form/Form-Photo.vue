@@ -6,7 +6,7 @@
           <img :src="Photo" class="h-20vh w-auto border border-1 rounded-4" alt="Photo Profile">
         </div>
         <div class="col-12 d-flex justify-content-center">
-          <button class="btn-change my-1 px-1">Ubah Foto</button>
+          <button class="btn-change my-1 px-1 text-white">Ubah Foto</button>
         </div>
       </div>
     </div>
@@ -28,10 +28,11 @@ export default {
 
 <style>
 .btn-change {
-  background-color: azure;
+  background-color: blue;
   border-radius: 10px;
   width: 100px;
   border-color: transparent;
-  box-shadow: 2px 2px;
+  box-shadow: 2px 2px black;
+  font-weight: 500;
 }
 </style>
