@@ -5,23 +5,38 @@
     </div>
     <div class="row h-90vh m-0 p-0 overflow scrollbar-none">
       <FPP :Photo="data.photo"/>
-      <div class="col-4 col-lg-1 h-65vh m-0 px-1 py-2">
-        <!-- <label class="h-5vh my-1">Username</label>
-        <label class="h-5vh my-1">Email</label>
-        <label class="h-5vh my-1">No HP</label>
-        <label class="h-5vh my-1">Alamat</label> -->
-        <div class="h-5vh my-1">Username</div>
-        <div class="h-5vh my-1">Email</div>
-        <div class="h-5vh my-1">No HP</div>
-        <div class="h-5vh my-1">Alamat</div>
-      </div>
-      <div class="col-8 col-lg-11 h-65vh m-0 px-0 py-2">
-        <div class="h-5vh my-1">: <input type="text" :placeholder="username" v-model="data.username"></div>
-        <div class="h-5vh my-1">: <input type="text" readonly :placeholder="data.email" v-model="data.email"></div>
-        <div class="h-5vh my-1">: <input type="text" :placeholder="data.phone" v-model="data.phone"></div>
-        <div class="h-5vh my-1">: <input type="text" :placeholder="data.address" v-model="data.address"></div>
-        <div class="col-lg-2 d-flex justify-content-center my-1">
-          <button @click.prevent="update">UPDATE</button>
+      <div class="row h-65vh m-0 p-0 pt-3">
+        <!-- USERNAME -->
+        <div class="row h-5vh m-0 p-0">
+          <div class="col-4 col-lg-1 d-flex align-items-center">Username</div>
+          <div class="col-8 col-lg-11 d-flex align-items-center">
+            <input type="text" :placeholder="username" v-model="data.username" class="input-data">
+          </div>
+        </div>
+        <!-- EMAIL -->
+        <div class="row h-5vh m-0 p-0">
+          <div class="col-4 col-lg-1 d-flex align-items-center">Email</div>
+          <div class="col-8 col-lg-11 d-flex align-items-center">
+            <input type="email" :placeholder="email" v-model="data.email" readonly class="input-data">
+          </div>
+        </div>
+        <!-- PHONE -->
+        <div class="row h-5vh m-0 p-0">
+          <div class="col-4 col-lg-1 d-flex align-items-center">Phone</div>
+          <div class="col-8 col-lg-11 d-flex align-items-center">
+            <input type="text" :placeholder="phone" v-model="data.phone" class="input-data">
+          </div>
+        </div>
+        <!-- ADDRESS -->
+        <div class="row h-5vh m-0 p-0">
+          <div class="col-4 col-lg-1 d-flex align-items-center">Address</div>
+          <div class="col-8 col-lg-11 d-flex align-items-center">
+            <input type="text" :placeholder="address" v-model="data.address" class="input-data">
+          </div>
+        </div>
+        <!-- BUTTON UPDATE -->
+        <div class="btn-content d-flex h-45vh py-3">
+          <button @click.prevent="update" class="btn-update">UPDATE</button>
         </div>
       </div>
     </div>
@@ -41,8 +56,8 @@ export default {
       data: {
         username: '',
         email: 'cafein@gmail.com',
-        phone: '',
-        address: '',
+        phone: '08xxxxx',
+        address: 'Jl. Aja lah',
         photo: PP
       }
     }
@@ -64,21 +79,35 @@ export default {
 </script>
 
 <style>
-/* input {
-  width: 300px;
-  padding: 10px 15px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  outline: none;
-}
-input:focus {
-  border-color: #6a5acd;
-  box-shadow: 0 0 10px rgba(106, 90, 205, 0.5);
+.input-data {
+  width: 180px;
+  padding: 2px;
+  padding-left: 5px;
 }
 
-label {
-  padding: 5px 15px;
-} */
+.btn-update {
+  height: 40px;
+  background-color: blue;
+  color: white;
+  font-weight: 500;
+  border-radius: 10px;
+  border-color: transparent;
+  box-shadow: 2px 2px black;
+}
+
+.btn-content {
+  justify-content: center;
+}
+
+@media screen and (min-width: 800px) {
+  .input-data {
+    width: 300px;
+    padding: 2px;
+    padding-left: 5px;
+  }
+
+  .btn-content {
+    justify-content: start;
+  }
+}
 </style>

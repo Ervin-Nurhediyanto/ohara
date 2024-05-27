@@ -22,15 +22,15 @@ export default {
 
 <style>
 .video-module {
-  width: 250px;
+  width: 300px;
   height: 200px;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 800px) {
   .video-module {
   width: 390px;
   height: 300px;
-}
+  }
 }
 
 </style>
