@@ -1,11 +1,10 @@
 <template>
   <div class="row h-100vh bg-grey overflow scrollbar-none">
-    <div class="col-12 h-5vh d-flex justify-content-center align-items-center text-white bg-dark"><span><b>PILIH PRODUK</b></span></div>
-    <!-- <div class="col-12 h-5vh text-center text-white bg-dark"><span><b>PILIH PRODUK</b></span></div> -->
-    <div class="col-12 col-lg-3 h-30vh m-0 p-0" v-for="img in images" :key="img">
-      <!-- <img :src="images[0]" class="img" alt="">
-      <img :src="images[1]" class="img" alt=""> -->
-      <img :src="img" class="img c-pointer" alt="">
+    <div class="col-12 h-5vh d-flex justify-content-center align-items-center text-white bg-dark">
+      <span><b>PILIH PRODUK</b></span>
+    </div>
+    <div class="col-12 col-lg-3 h-30vh m-0 p-0" v-for="i in images.length" :key="i">
+      <img :src="images[i-1]" class="img c-pointer" alt="" @click.prevent="handleSelectProduct(packets[i-1])">
     </div>
     <div class="h-65vh"></div>
   </div>
@@ -26,11 +25,24 @@ export default {
         Product02,
         Product03,
         Product04
+      ],
+      packets: [
+        'Private-Offline',
+        'Private-Online',
+        'Kelas-Offline',
+        'Voucher-Tugas'
       ]
     }
   },
   components: {},
-  methods: {}
+  methods: {
+    handleSelectProduct (packet) {
+      this.$router.replace({
+        name: 'Product-Selected',
+        query: { packet: packet }
+      })
+    }
+  }
 }
 </script>
 

@@ -32,6 +32,11 @@ const routes = [
         name: 'Product',
         component: () => import('../views/general/Product.vue')
       },
+      {
+        path: '/product-selected',
+        name: 'Product-Selected',
+        component: () => import('../views/general/Product-Selected.vue')
+      },
       // AUTH ROUTER
       {
         path: '/login',
