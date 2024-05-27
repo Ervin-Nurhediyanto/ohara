@@ -8,8 +8,8 @@
     </svg>
     <transition name="fade" appear>
       <div class="sub-menu" v-if="isOpen">
-        <div v-for="(item, i) in items" :key="i" class="menu-item">
-          <a :href="item.link" @click.prevent=handleClick(item.title)>{{ item.title }}</a>
+        <div v-for="(item, i) in items" :key="i" class="menu-item" @click.prevent=handleClick(item.title)>
+          <a :href="item.link">{{ item.title }}</a>
         </div>
       </div>
     </transition>

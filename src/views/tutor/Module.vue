@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import Content from '../../components/tutor/content/jadwal/Main.vue'
+import Content from '../../components/tutor/content/module/Main.vue'
 
 export default {
-  name: 'Jadwal-Tutor',
+  name: 'Module-Tutor',
   data () {
     return {}
   },

@@ -1,8 +1,14 @@
 .bs-5px {
   padding: 5px;
-  box-shadow: 5px 5px;
+  /* box-shadow: 5px 5px; */
+  box-shadow: 5px 5px rgba(70,150,240,0.25);
 }
 .bs-3px {
   padding: 3px;
   box-shadow: 3px 3px;
+}
+
+.bs-5px:hover {
+  /* box-shadow: 0 40px 12px rgba(70,150,240,0.25) inset, 0 -40px 12px rgba(70,150,240,0.25) inset; */
+  box-shadow: 5px 5px rgba(70,150,240,0.25) inset, 0 -5px 5px rgba(70,150,240,0.25) inset;
 }

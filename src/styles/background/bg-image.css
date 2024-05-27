@@ -9,3 +9,9 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.bg-profile {
+  background-image: url(../../assets/icon/profile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

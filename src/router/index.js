@@ -71,6 +71,11 @@ const routes = [
         component: () => import('../views/tutor/Profile.vue')
       },
       {
+        path: '/module-tutor',
+        name: 'Module-Tutor',
+        component: () => import('../views/tutor/Module.vue')
+      },
+      {
         path: '/jadwal-tutor',
         name: 'Jadwal-Tutor',
         component: () => import('../views/tutor/Jadwal.vue')

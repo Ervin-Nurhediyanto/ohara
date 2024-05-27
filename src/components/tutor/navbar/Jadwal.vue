@@ -1,6 +1,7 @@
 <template>
-  <div @click.prevent="handleJadwal">
-    <font-awesome-icon :icon="['fas', 'calendar']" class="mx-1 w-25"/>
+  <div @click.prevent="handleJadwal" class="my-2">
+    <font-awesome-icon :icon="['fas', 'calendar']" class="d-none d-lg-inline mx-1 w-25"/>
+    <font-awesome-icon :icon="['fas', 'calendar']" class="d-inline d-sm-none mx-1 w-100"/>
     <span class="d-none d-sm-inline">Jadwal</span>
   </div>
 </template>

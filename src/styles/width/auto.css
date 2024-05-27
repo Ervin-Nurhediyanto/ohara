@@ -1,3 +1,4 @@
 .w-auto {
   width: auto;
+  object-fit: cover;
 }
