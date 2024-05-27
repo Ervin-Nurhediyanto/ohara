@@ -42,11 +42,6 @@ export default {
     handleLogin () {
       this.login(this.form)
         .then((res) => {
-          // alert('hallo ' + this.username)
-          console.log(res.data)
-          console.log('Role ID:')
-          // console.log(res.data.data.roleId)
-          // const roleId = res.data.data.roleId
           this.findRole(res.data.data.roleId)
             .then((result) => {
               const role = result.data.data[0].name
@@ -54,14 +49,7 @@ export default {
                 this.$router.replace({
                   name: 'Dashboard-Tutor'
                 })
-                // this.$router.go('Dashboard-Tutor')
               }
-              console.log(result.data.data[0].name)
-              // this.$router.go(0)
-              // Go To Dashboard
-              // this.$router.replace({
-              //   name: 'Register'
-              // })
             })
         })
     },
@@ -82,10 +70,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .login-container {
+  height: 80%;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;

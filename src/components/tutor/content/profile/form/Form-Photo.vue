@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .btn-change {
   background-color: blue;
   border-radius: 10px;

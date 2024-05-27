@@ -78,7 +78,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .input-data {
   width: 180px;
   padding: 2px;

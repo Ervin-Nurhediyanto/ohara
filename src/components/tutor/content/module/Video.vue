@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .video-module {
   width: 300px;
   height: 200px;

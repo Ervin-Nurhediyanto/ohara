@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .search-data {
   width: 200px;
   padding: 2px;
