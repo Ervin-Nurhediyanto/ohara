@@ -1,7 +1,6 @@
 .bg-home {
   background-image: url(../../assets/bg/bg-01.png);
   background-size: cover;
-  /* background-size: contain; */
   background-repeat: no-repeat;
 }
 .bg-about {
@@ -12,6 +11,12 @@
 
 .bg-profile {
   background-image: url(../../assets/icon/profile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-paper {
+  background-image: url(../../assets/icon/paper.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }

@@ -74,7 +74,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .login {
   font-family: Arial, sans-serif;
   margin: 0;

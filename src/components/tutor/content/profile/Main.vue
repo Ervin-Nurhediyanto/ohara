@@ -7,36 +7,36 @@
       <FPP :Photo="data.photo"/>
       <div class="row h-65vh m-0 p-0 pt-3">
         <!-- USERNAME -->
-        <div class="row h-5vh m-0 p-0">
+        <div class="row h-5vh m-0 my-2 p-0">
           <div class="col-4 col-lg-1 d-flex align-items-center">Username</div>
-          <div class="col-8 col-lg-11 d-flex align-items-center">
+          <div class="col-8 col-lg-3 d-flex align-items-center">
             <input type="text" :placeholder="username" v-model="data.username" class="input-data">
           </div>
         </div>
         <!-- EMAIL -->
-        <div class="row h-5vh m-0 p-0">
+        <div class="row h-5vh m-0 my-2 p-0">
           <div class="col-4 col-lg-1 d-flex align-items-center">Email</div>
-          <div class="col-8 col-lg-11 d-flex align-items-center">
+          <div class="col-8 col-lg-3 d-flex align-items-center">
             <input type="email" :placeholder="email" v-model="data.email" readonly class="input-data">
           </div>
         </div>
         <!-- PHONE -->
-        <div class="row h-5vh m-0 p-0">
+        <div class="row h-5vh m-0 my-2 p-0">
           <div class="col-4 col-lg-1 d-flex align-items-center">Phone</div>
-          <div class="col-8 col-lg-11 d-flex align-items-center">
+          <div class="col-8 col-lg-3 d-flex align-items-center">
             <input type="text" :placeholder="phone" v-model="data.phone" class="input-data">
           </div>
         </div>
         <!-- ADDRESS -->
-        <div class="row h-5vh m-0 p-0">
+        <div class="row h-5vh m-0 my-2 p-0">
           <div class="col-4 col-lg-1 d-flex align-items-center">Address</div>
-          <div class="col-8 col-lg-11 d-flex align-items-center">
+          <div class="col-8 col-lg-3 d-flex align-items-center">
             <input type="text" :placeholder="address" v-model="data.address" class="input-data">
           </div>
         </div>
         <!-- BUTTON UPDATE -->
-        <div class="btn-content d-flex h-45vh py-3">
-          <button @click.prevent="update" class="btn-update">UPDATE</button>
+        <div class="row h-45vh btn-content d-flex py-3">
+          <button @click.prevent="update" class="col-4 col-lg-1 mx-2 btn-update">UPDATE</button>
         </div>
       </div>
     </div>

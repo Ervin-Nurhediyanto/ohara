@@ -4,9 +4,9 @@
       <h3><b>{{ title }}</b></h3>
     </div>
     <div class="row h-90vh m-0 p-0 overflow scrollbar-none">
-      <div class="d-flex h-5vh align-items-center bg-dark text-white">
-        <b class="mx-3">SEARCH</b>
-        <input type="text" v-model="search" class="search-data">
+      <div class="row d-flex h-5vh align-items-center bg-dark text-white">
+        <b class="col-3 col-lg-1">SEARCH</b>
+        <input type="text" v-model="search" class="col-4 search-data">
       </div>
       <div class="h-85vh py-2 overflow scrollbar-none">
         <video-module v-for="i in videos.length" :key="i" :video="videos[i - 1].link" class="mx-2"/>

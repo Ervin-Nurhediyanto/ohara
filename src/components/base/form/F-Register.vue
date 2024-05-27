@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .register {
     font-family: Arial, sans-serif;
     margin: 0;
