@@ -81,6 +81,47 @@ const routes = [
         component: () => import('../views/tutor/Jadwal.vue')
       }
     ]
+  },
+  // STUDENT ROUTER
+  {
+    path: '/student',
+    name: 'Student',
+    component: () => import('../views/student/Main.vue'),
+    redirect: {
+      name: 'Dashboard-Student'
+    },
+    children: [
+      {
+        path: '/dashboard-student',
+        name: 'Dashboard-Student',
+        component: () => import('../views/student/Dashboard.vue')
+      },
+      {
+        path: '/profile-student',
+        name: 'Profile-Student',
+        component: () => import('../views/student/Profile.vue')
+      },
+      {
+        path: '/class-student',
+        name: 'Class-Student',
+        component: () => import('../views/student/Class.vue')
+      },
+      {
+        path: '/select-packet-student',
+        name: 'Select-Packet-Student',
+        component: () => import('../views/student/Select-Packet.vue')
+      },
+      {
+        path: '/schedule-student',
+        name: 'Schedule-Student',
+        component: () => import('../views/student/Schedule.vue')
+      },
+      {
+        path: '/finance-student',
+        name: 'Finance-Student',
+        component: () => import('../views/student/Finance.vue')
+      }
+    ]
   }
 ]
 

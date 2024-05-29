@@ -47,21 +47,4 @@ export default {
 </script>
 
 <style>
-/* .bg-home {
-  background-image: url(../../../assets/bg/bg-01.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
-/* .box-shadow-2px {
-  box-shadow: 2px 2px 0px 0px;
-}
-.fs-10px {
-  font-size: 10px
-} */
-
-/* @media (max-width: 1200px) {
-  .bg-home {
-    background-size: cover;
-  }
-} */
 </style>

@@ -50,7 +50,15 @@ export default {
                   name: 'Dashboard-Tutor'
                 })
               }
+              if (role === 'STUDENT') {
+                this.$router.replace({
+                  name: 'Dashboard-Student'
+                })
+              }
             })
+        })
+        .catch(() => {
+          alert('Username atau Password salah')
         })
     },
     handleRegister () {
