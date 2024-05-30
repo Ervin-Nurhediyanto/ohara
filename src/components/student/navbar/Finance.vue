@@ -1,5 +1,5 @@
 <template>
-  <div @click.prevent="handleProfile" class="my-2">
+  <div @click.prevent="handleFinance" class="my-2">
     <font-awesome-icon :icon="['fas', 'money-check-dollar']" class="d-none d-lg-inline mx-1 w-25"/>
     <font-awesome-icon :icon="['fas', 'money-check-dollar']" class="d-inline d-sm-none mx-1 w-100"/>
     <span class="d-none d-sm-inline">Finance</span>
@@ -16,7 +16,7 @@ export default {
   components: {},
   computed: {},
   methods: {
-    handleProfile () {
+    handleFinance () {
       this.$router.replace({
         name: 'Finance-Student'
       })
