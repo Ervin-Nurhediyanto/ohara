@@ -11,6 +11,7 @@ if (process.env.VUE_APP_STATUS === 'production') {
 const Users = {
   state: {
     user: localStorage.getItem('user') || null,
+    userId: localStorage.getItem('userId') || null,
     username: localStorage.getItem('username') || null,
     users: [],
     token: localStorage.getItem('token') || null
@@ -22,6 +23,9 @@ const Users = {
     user (state) {
       return state.user
     },
+    userId (state) {
+      return state.userId
+    },
     username (state) {
       return state.username
     },
@@ -32,6 +36,9 @@ const Users = {
   mutations: {
     setUser (state, payload) {
       state.user = payload
+    },
+    setUserId (state, payload) {
+      state.userId = payload
     },
     setUsername (state, payload) {
       state.username = payload
@@ -77,8 +84,9 @@ const Users = {
           .then(res => {
             const user = res.data.data
             setex.commit('setUser', user)
-            localStorage.setItem('user', user)
             setex.commit('setUsername', user.username)
+            localStorage.setItem('user', user)
+            localStorage.setItem('userId', user._id)
             localStorage.setItem('username', user.username)
             localStorage.setItem('token', user.token)
             resolve(res)
@@ -96,6 +104,57 @@ const Users = {
         })
         resolve()
         router.push('/login')
+      })
+    },
+    getUsers (setex, payload) {
+      let search = ''
+      if (payload.roleId) { search += `?roleId=${payload.roleId}` }
+      return new Promise((resolve, reject) => {
+        axios
+          .get(url + `/users/${search}`)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
+    getUser (setex, payload) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get(url + `/users/${payload.id}`)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
+    insertUser (setex, payload) {
+      return new Promise((resolve, reject) => {
+        axios
+          .post(url + `/users/register/${payload.role}`, payload)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
+    updateUser (setex, payload) {
+      console.log(payload)
+      return new Promise((resolve, reject) => {
+        axios
+          .patch(url + `/users/${payload.id}`, payload.data)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
       })
     }
   }

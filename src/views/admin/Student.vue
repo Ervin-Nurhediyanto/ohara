@@ -1,6 +1,6 @@
 <template>
   <div class="row m-0 p-0">
-    <Content/>
+    <Content :roles="roles"/>
   </div>
 </template>
 
@@ -9,6 +9,7 @@ import Content from '../../components/admin/content/student/Main.vue'
 
 export default {
   name: 'Student-Admin',
+  props: ['roles'],
   data () {
     return {}
   },

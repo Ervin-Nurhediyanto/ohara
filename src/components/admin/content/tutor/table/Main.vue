@@ -11,7 +11,7 @@
       </tr>
       <tr v-for="i in tutors.length" :key="i" class="ff-georgia">
         <td class="h-5vh w-3 px-1 border border-2 border-dark">{{ i }}</td>
-        <td class="h-5vh w-15 px-1 border border-2 border-dark c-pointer">{{ tutors[i-1].name }}</td>
+        <td class="h-5vh w-15 px-1 border border-2 border-dark c-pointer">{{ tutors[i-1].username }}</td>
         <td class="h-5vh w-10 px-1 border border-2 border-dark text-center">{{ tutors[i-1].mapel }}</td>
         <td class="h-5vh w-10 px-1 border border-2 border-dark">
           <div class="text-primary text-center c-pointer"><u>check module</u></div>
@@ -20,7 +20,9 @@
           <div class="text-primary text-center c-pointer"><u>check schedule</u></div>
         </td>
         <td class="h-5vh w-10 px-1 border border-2 border-dark">
-          <div class="d-flex m-0 p-0 py-1 justify-content-center"><btn-status :status="tutors[i-1].status"/></div>
+          <div class="d-flex m-0 p-0 py-1 justify-content-center">
+            <btn-status :index="i-1" :status="tutors[i-1].status" :data="tutors[i-1]" v-on:handleStatus="handleStatus"/>
+          </div>
         </td>
       </tr>
     </table>
@@ -41,6 +43,10 @@ export default {
     BtnStatus
   },
   computed: {},
-  methods: {}
+  methods: {
+    handleStatus (data) {
+      this.$emit('handleStatus', data)
+    }
+  }
 }
 </script>

@@ -1,38 +1,58 @@
 <template>
   <div class="container rounded-4">
     <form action="#" class="register-form">
-      <h2 class="fs-1">Register</h2>
+      <h2 class="fs-4">Register</h2>
       <hr/>
       <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" placeholder="Username" required v-model="form.username">
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="Email" required v-model="form.email">
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" placeholder="Password" required v-model="form.password">
       </div>
       <div class="form-group">
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirm-password" required>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required v-model="form.confirmPassword">
       </div>
-      <button type="submit">Register</button>
+      <button type="submit" @click.prevent="handleClick">Register</button>
     </form>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Template-Form-Register',
   data () {
-    return {}
+    return {
+      form: {
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+      }
+    }
   },
   components: {},
-  methods: {}
+  methods: {
+    ...mapActions(['insertUser']),
+    handleClick () {
+      if (this.form.password !== this.form.confirmPassword) {
+        alert('Password Tidak Sama')
+      } else {
+        this.form.role = 'student'
+        this.insertUser(this.form)
+          .then((res) => {
+            alert('REGISTER SUKSES')
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+    }
+  }
 }
 </script>
 
@@ -45,9 +65,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 .container {
-  height: 75vh;
   width: 100%;
   max-width: 400px;
   padding: 20px;
@@ -55,20 +73,12 @@ export default {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 .register-form {
   text-align: center;
 }
-
 .form-group {
   margin-bottom: 20px;
 }
-
-label {
-  display: block;
-  margin-bottom: 8px;
-}
-
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -78,7 +88,6 @@ input[type="password"] {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 button {
   width: 100%;
   padding: 10px;
@@ -89,7 +98,6 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 button:hover {
   background-color: #45a049;
 }

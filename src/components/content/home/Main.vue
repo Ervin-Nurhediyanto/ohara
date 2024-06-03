@@ -11,7 +11,7 @@
         <!-- <div class="d-flex col-4 col-sm-4 col-lg-2 h-5vh m-lg-1 mt-lg-3 mx-1 rounded-4 justify-content-center align-items-center box-shadow-2px c-pointer bg-white">
           <b class="fs-10px">Hubungi Kami</b>
         </div> -->
-        <div class="d-flex col-4 col-sm-4 col-lg-2 h-5vh m-lg-1 mt-lg-3 mx-1 rounded-4 justify-content-center align-items-center box-shadow-2px c-pointer bg-white"
+        <div class="d-flex col-4 col-sm-4 col-lg-1 h-5vh m-lg-1 mt-lg-3 mx-1 rounded-4 justify-content-center align-items-center box-shadow-2px c-pointer bg-white"
         @click.prevent="handleRegister">
           <b class="fs-10px">Daftar Sekarang</b>
         </div>

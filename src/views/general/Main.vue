@@ -1,5 +1,5 @@
 <template>
-  <div class="row m-0 p-0 h-100vh overflow scrollbar-none bg-home">
+  <div class="row m-0 p-0 h-100vh bg-home">
     <Navbar v-on:handleMenuBar="handleMenuBar"/>
     <router-view class="shadow-sm"/>
     <Footer/>

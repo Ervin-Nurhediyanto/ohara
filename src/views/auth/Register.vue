@@ -1,5 +1,5 @@
 <template>
-  <div class="p-0 py-3">
+  <div class="m-0 p-0">
     <Content/>
   </div>
 </template>

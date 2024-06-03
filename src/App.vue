@@ -1,5 +1,5 @@
 <template>
-  <div class="row m-0 p-0 overflow scrollbar-none">
+  <div class="row m-0 p-0">
     <router-view/>
   </div>
 </template>

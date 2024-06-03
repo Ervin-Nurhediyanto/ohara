@@ -3,23 +3,39 @@
     <button v-if="status == 'enable'" class="button-enable bg-grey">{{ status }} &nbsp; ▼</button>
     <button v-else class="button-disable bg-grey">{{ status }} &nbsp; ▼</button>
     <div class="dropdown-content">
-      <a id="top" href="#">Enable</a>
-      <a id="middle" href="#">Disable</a>
+      <a id="top" href="#" @click.prevent="handleStatus('enable')">Enable</a>
+      <a id="middle" href="#" @click.prevent="handleStatus('disable')">Disable</a>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Status-Student-Admin',
-  props: ['status'],
+  props: ['status', 'data', 'index'],
   data () {
     return {}
   },
   components: {},
   computed: {},
-  methods: {}
+  methods: {
+    ...mapActions(['updateUser']),
+    handleStatus (status) {
+      const formData = new FormData()
+      formData.append('status', status)
+
+      const data = {
+        id: this.data._id,
+        data: formData
+      }
+      this.updateUser(data)
+        .then((res) => {
+          this.$emit('handleStatus', { index: this.index, status: status })
+        })
+    }
+  }
 }
 </script>
 

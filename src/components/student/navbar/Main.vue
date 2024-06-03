@@ -1,21 +1,20 @@
 <template>
   <div class="col-2 text-white bg-info">
-    <PP/><hr/>
-    <div class="d-none d-sm-flex c-default">{{ username }}</div><hr class="d-none d-sm-flex"/>
+    <PP :image="data.image"/><hr/>
+    <div class="d-none d-sm-flex c-default">{{ data.username }}</div><hr class="d-none d-sm-flex"/>
     <div class="c-pointer">
-      <Dashboard/>
-      <Profile/>
-      <Class/>
+      <dashboard/>
+      <profile/>
+      <class/>
       <select-packet/>
-      <Schedule/>
-      <Finance/>
-      <Logout/>
+      <schedule/>
+      <finance/>
+      <logout/>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import PP from './Photo-Profile.vue'
 import Dashboard from './Dashboard.vue'
 import Profile from './Profile.vue'
@@ -27,6 +26,7 @@ import Logout from './Logout'
 
 export default {
   name: 'Main-Navbar-Student',
+  props: ['data'],
   data () {
     return {}
   },
@@ -40,11 +40,8 @@ export default {
     Finance,
     Logout
   },
-  computed: {
-    ...mapGetters({
-      username: 'username'
-    })
-  },
+  computed: {},
+  mounted () {},
   methods: {}
 }
 
