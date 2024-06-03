@@ -4,17 +4,22 @@
       <h3><b>{{ title }}</b></h3>
     </div>
     <div class="row h-90vh m-0 p-0 overflow scrollbar-none">
-      <!-- <IcoPro/>
-      <IcoMod/>
-      <IcoJad/> -->
+      <ico-pro/>
+      <ico-cla/>
+      <ico-sch/>
+      <ico-sel/>
+      <ico-fin/>
+      <!-- <div class="col-12 col-lg-9 h-50vh p-3"></div> -->
     </div>
   </div>
 </template>
 
 <script>
-// import IcoPro from './cards/Card-Profile.vue'
-// import IcoMod from './cards/Card-Module.vue'
-// import IcoJad from './cards/Card-Jadwal.vue'
+import IcoPro from './cards/Card-Profile.vue'
+import IcoCla from './cards/Card-Class.vue'
+import IcoSch from './cards/Card-Schedule.vue'
+import IcoSel from './cards/Card-Select-Packet.vue'
+import IcoFin from './cards/Card-Finance.vue'
 
 export default {
   name: 'Main-Dashboard-Student',
@@ -24,9 +29,11 @@ export default {
     }
   },
   components: {
-    // IcoPro,
-    // IcoMod,
-    // IcoJad
+    IcoPro,
+    IcoCla,
+    IcoSch,
+    IcoSel,
+    IcoFin
   },
   computed: {},
   methods: {}

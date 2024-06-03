@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <!-- <div class="login-container">
     <form class="login-form">
       <h2>Welcome Back!</h2>
       <div class="input-group">
@@ -15,7 +15,16 @@
         <a href="#" @click.prevent="handleRegister">Sign up</a>
       </p>
     </form>
-  </div>
+  </div> -->
+  <form>
+    <p class="logo">Ohara Bimbel</p>
+    <input type="text" placeholder="Username" required="" v-model="form.username">
+    <input type="password" placeholder="Password" required="" v-model="form.password">
+    <button class="login" @click.prevent="handleLogin">Log In</button>
+    <!-- <a href="#">Forgot Password ?</a> -->
+    <hr>
+    <button class="create-account" @click.prevent="handleRegister">Create New Account</button>
+  </form>
 </template>
 
 <script>
@@ -45,6 +54,11 @@ export default {
           this.findRole(res.data.data.roleId)
             .then((result) => {
               const role = result.data.data[0].name
+              if (role === 'ADMIN') {
+                this.$router.replace({
+                  name: 'Dashboard-Admin'
+                })
+              }
               if (role === 'TUTOR') {
                 this.$router.replace({
                   name: 'Dashboard-Tutor'
@@ -71,7 +85,7 @@ export default {
 </script>
 
 <style scoped>
-.login {
+/* .login {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -142,5 +156,79 @@ button:hover {
 
 .signup-link a:hover {
   text-decoration: underline;
+} */
+
+.logo {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #1877f2;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 1.5rem 1rem;
+  width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+form input {
+  outline: none;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+form input:focus {
+  border: 1.8px solid #1877f2;
+}
+
+form .login {
+  outline: none;
+  border: none;
+  background: #1877f2;
+  padding: 0.8rem 1rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+form .login:hover {
+  background: #0f71f1;
+  cursor: pointer;
+}
+
+form a {
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.9rem;
+  padding-top: 0.8rem;
+  color: #1877f2;
+}
+
+form hr {
+  background: #f7f7f7;
+  margin: 0.5rem;
+}
+
+form .create-account {
+  outline: none;
+  border: none;
+  background: #06b909;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #fff;
+  width: 75%;
+  margin: 0 auto;
+}
+
+form .create-account:hover {
+  background: #03ad06;
+  cursor: pointer;
 }
 </style>

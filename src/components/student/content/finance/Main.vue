@@ -22,7 +22,9 @@
           <span class="d-none d-lg-flex col-lg-3 h-5vh align-items-center border border-1 border-dark"><b>PRIVATE ONLINE</b></span>
           <span class="d-none d-lg-flex col-lg-2 h-5vh align-items-center border border-1 border-dark"><b>30-05-2024</b></span>
           <span class="d-none d-lg-flex col-lg-2 h-5vh align-items-center border border-1 border-dark"><b>-</b></span>
-          <span class="d-none d-lg-flex col-lg-2 h-5vh align-items-center border border-1 border-dark"><b>UPLOAD BUKTI</b></span>
+          <span class="d-none d-lg-flex col-lg-2 h-5vh align-items-center border border-1 border-dark">
+            <button class="h-3vh p-1 fs-12px">UPLOAD BUKTI</button>
+          </span>
           <span class="d-none d-lg-flex col-lg-2 h-5vh align-items-center border border-1 border-dark"><b>PROSES PEMBAYARAN</b></span>
         </div>
       </div>

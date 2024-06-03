@@ -4,21 +4,49 @@
       <h3><b>{{ title }}</b></h3>
     </div>
     <div class="row h-90vh m-0 p-0 overflow scrollbar-none">
+      <div v-if="isPresensi" class="h-5vh d-flex align-items-center bg-dark text-white">
+        <b class="c-pointer" @click.prevent="handleBack">BACK</b>
+      </div>
+      <table class="h-5vh">
+        <header-main v-if="!isPresensi"/>
+        <header-presensi v-else/>
+        <data-main v-if="!isPresensi" v-on:handlePresensi="handlePresensi"/>
+        <data-presensi v-else v-for="i in dataPresensi.length" :key="i" :no="i"/>
+      </table>
+      <div class="h-80vh"></div>
     </div>
   </div>
 </template>
 
 <script>
+import HeaderMain from './header/Main.vue'
+import HeaderPresensi from './header/Presensi.vue'
+import DataMain from './data/Main.vue'
+import DataPresensi from './data/Presensi.vue'
 
 export default {
   name: 'Main-Class-Student',
   data () {
     return {
-      title: 'CLASS STUDENT'
+      title: 'CLASS STUDENT',
+      isPresensi: false,
+      dataPresensi: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     }
   },
-  components: {},
+  components: {
+    HeaderMain,
+    HeaderPresensi,
+    DataMain,
+    DataPresensi
+  },
   computed: {},
-  methods: {}
+  methods: {
+    handlePresensi () {
+      this.isPresensi = !this.isPresensi
+    },
+    handleBack () {
+      this.isPresensi = !this.isPresensi
+    }
+  }
 }
 </script>

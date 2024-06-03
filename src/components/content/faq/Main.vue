@@ -5,15 +5,15 @@
         <b class="fs-1">Tanya Jawab</b>
       </div>
       <div class="d-flex h-80vh justify-content-center">
-        <div class="col-10 col-lg-5 h-40vh mt-3 rounded bs-3px bg-white overflow scrollbar-none">
+        <div class="col-10 col-lg-5 h-40vh mt-3 rounded bs-3px bg-info overflow scrollbar-none">
           <div v-for="i in faqs.q.length" :key="i" class="p-2">
             <div class="d-flex justify-content-between">
               <span class="ff-lucida">Q: {{ faqs.q[i - 1] }}</span>
-              <span @click.prevent="handleAns(i-1)" class="h-4vh px-2 py-1 rounded-circle c-pointer bg-warning">
+              <span @click.prevent="handleAns(i-1)" class="h-4vh px-2 py-1 rounded-circle c-pointer bg-warning bs-1px">
                 <b>{{ faqs.btn[i - 1] }}</b>
               </span>
             </div>
-            <div v-if="faqs.isAns[i - 1]" class="text-info">
+            <div v-if="faqs.isAns[i - 1]" class="text-white">
               <span class="ff-lucida">A: {{ faqs.a[i - 1] }}</span>
             </div>
           </div>

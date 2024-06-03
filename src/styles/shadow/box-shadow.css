@@ -7,6 +7,10 @@
   padding: 3px;
   box-shadow: 3px 3px;
 }
+.bs-1px {
+  padding: 1px;
+  box-shadow: 1px 1px;
+}
 
 .bs-5px:hover {
   /* box-shadow: 0 40px 12px rgba(70,150,240,0.25) inset, 0 -40px 12px rgba(70,150,240,0.25) inset; */

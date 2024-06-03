@@ -51,6 +51,32 @@ const routes = [
       }
     ]
   },
+  // ADMIN ROUTER
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('../views/admin/Main.vue'),
+    redirect: {
+      name: 'Dashboard-Admin'
+    },
+    children: [
+      {
+        path: '/dashboard-Admin',
+        name: 'Dashboard-Admin',
+        component: () => import('../views/admin/Dashboard.vue')
+      },
+      {
+        path: '/tutor-Admin',
+        name: 'Tutor-Admin',
+        component: () => import('../views/admin/Tutor.vue')
+      },
+      {
+        path: '/student-Admin',
+        name: 'Student-Admin',
+        component: () => import('../views/admin/Student.vue')
+      }
+    ]
+  },
   // TUTOR ROUTER
   {
     path: '/tutor',
