@@ -21,8 +21,7 @@
     <input type="text" placeholder="Username" required="" v-model="form.username">
     <input type="password" placeholder="Password" required="" v-model="form.password">
     <button class="login" @click.prevent="handleLogin">Log In</button>
-    <!-- <a href="#">Forgot Password ?</a> -->
-    <hr>
+    <hr/>
     <button class="create-account" @click.prevent="handleRegister">Create New Account</button>
   </form>
 </template>
@@ -53,7 +52,8 @@ export default {
         .then((res) => {
           this.findRole(res.data.data.roleId)
             .then((result) => {
-              const role = result.data.data[0].name
+              // const role = result.data.data[0].name
+              const role = result[0].data.data[0].name
               if (role === 'ADMIN') {
                 this.$router.replace({
                   name: 'Dashboard-Admin'

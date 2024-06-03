@@ -90,6 +90,7 @@ const Users = {
             localStorage.setItem('username', user.username)
             localStorage.setItem('token', user.token)
             resolve(res)
+            console.log(res)
           })
           .catch(err => {
             reject(err)

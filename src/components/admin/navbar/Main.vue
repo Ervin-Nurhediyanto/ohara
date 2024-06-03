@@ -1,28 +1,24 @@
 <template>
   <div class="col-2 text-white bg-primary">
-    <PP/><hr/>
+    <photo-profile/><hr/>
     <div class="d-none d-sm-flex justify-content-center c-default">{{ username }}</div><hr class="d-none d-sm-flex"/>
     <div class="c-pointer">
-      <Dashboard/>
-      <Tutor/>
-      <Student/>
-      <!-- <Profile/> -->
-      <!-- <Module/> -->
-      <!-- <Jadwal/> -->
-      <Logout/>
+      <dashboard/>
+      <tutor/>
+      <student/>
+      <product/>
+      <logout/>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import PP from './Photo-Profile.vue'
+import PhotoProfile from './Photo-Profile.vue'
 import Dashboard from './Dashboard.vue'
 import Tutor from './Tutor.vue'
 import Student from './Student.vue'
-// import Profile from './Profile.vue'
-// import Module from './Module.vue'
-// import Jadwal from './Jadwal.vue'
+import Product from './Product.vue'
 import Logout from './Logout'
 
 export default {
@@ -31,13 +27,11 @@ export default {
     return {}
   },
   components: {
-    PP,
+    PhotoProfile,
     Dashboard,
     Tutor,
     Student,
-    // Profile,
-    // Module,
-    // Jadwal,
+    Product,
     Logout
   },
   computed: {
