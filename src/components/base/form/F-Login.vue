@@ -1,23 +1,6 @@
 <template>
-  <!-- <div class="login-container">
-    <form class="login-form">
-      <h2>Welcome Back!</h2>
-      <div class="input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" v-model="form.username" required>
-      </div>
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" v-model="form.password" required>
-      </div>
-      <button type="submit" @click.prevent="handleLogin">Login</button>
-      <p class="signup-link">Don't have an account?
-        <a href="#" @click.prevent="handleRegister">Sign up</a>
-      </p>
-    </form>
-  </div> -->
-  <form>
-    <p class="logo">Ohara Bimbel</p>
+  <form class="">
+    <p class="logo ts-white">Ohara Bimbel</p>
     <input type="text" placeholder="Username" required="" v-model="form.username">
     <input type="password" placeholder="Password" required="" v-model="form.password">
     <button class="login" @click.prevent="handleLogin">Log In</button>
@@ -85,79 +68,6 @@ export default {
 </script>
 
 <style scoped>
-/* .login {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-container {
-  height: 80%;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-form {
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.login-form h2 {
-  text-align: center;
-  color: #333333;
-}
-
-.input-group {
-  margin-bottom: 15px;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #333333;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #cccccc;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.signup-link {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.signup-link a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.signup-link a:hover {
-  text-decoration: underline;
-} */
-
 .logo {
   margin-bottom: 1rem;
   font-size: 1.2rem;
@@ -169,11 +79,12 @@ button:hover {
 form {
   display: flex;
   flex-direction: column;
-  background: #fff;
   padding: 1.5rem 1rem;
   width: 300px;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  /* margin-top: 50px;
+  margin-left: 100px; */
 }
 
 form input {
@@ -231,4 +142,18 @@ form .create-account:hover {
   background: #03ad06;
   cursor: pointer;
 }
+
+@media (min-width: 1200px) {
+  form {
+    margin-top: 50px;
+    margin-left: 100px;
+  }
+}
+
+/* @media screen (max-width: 1200px) {
+  form {
+    margin-top: 50px;
+    margin-left: 100px;
+  }
+} */
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="row h-90vh m-0 p-0 justify-content-center">
-    <div class="d-flex col-lg-4 justify-content-center align-items-center">
-      <div class="d-flex col-12 h-45vh justify-content-center login">
+    <div class="d-flex col-lg-4 justify-content-center align-items-center bg-form-auth">
+      <div class="d-flex col-12 h-60vh p-5 justify-content-center login">
         <FLogin/>
       </div>
     </div>
@@ -22,3 +22,6 @@ export default {
   methods: {}
 }
 </script>
+
+<style scoped>
+</style>

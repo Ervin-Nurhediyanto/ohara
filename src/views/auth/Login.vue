@@ -1,5 +1,5 @@
 <template>
-  <div class="p-0">
+  <div class="p-0 bg-auth">
     <Content/>
   </div>
 </template>

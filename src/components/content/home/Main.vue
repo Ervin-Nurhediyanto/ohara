@@ -1,5 +1,5 @@
 <template>
-  <div class="row h-100vh m-0 p-0">
+  <div class="row h-91vh m-0 p-0">
     <div class="row m-0 p-0">
       <div class="d-flex h-50vh justify-content-center align-items-end">
         <span class="display-1 ff-fantasy ts-white">BIMBEL OHARA</span>

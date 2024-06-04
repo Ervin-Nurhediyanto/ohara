@@ -146,7 +146,6 @@ const Users = {
       })
     },
     updateUser (setex, payload) {
-      console.log(payload)
       return new Promise((resolve, reject) => {
         axios
           .patch(url + `/users/${payload.id}`, payload.data)

@@ -35,6 +35,30 @@ const Products = {
             reject(err)
           })
       })
+    },
+    insertProduct (setex, payload) {
+      return new Promise((resolve, reject) => {
+        axios
+          .post(url + '/products', payload)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
+    updateProduct (setex, payload) {
+      return new Promise((resolve, reject) => {
+        axios
+          .patch(url + `/products/${payload.id}`, payload.data)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
     }
   }
 }

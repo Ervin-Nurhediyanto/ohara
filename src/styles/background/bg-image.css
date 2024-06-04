@@ -26,3 +26,15 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.bg-auth {
+  background-image: url(../../assets/bg/bg-04.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bg-form-auth {
+  background-image: url(../../assets/bg/bg-05.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}

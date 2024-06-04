@@ -56,15 +56,15 @@ export default {
         })
     },
     update () {
-      const formdata = new FormData()
-      formdata.append('username', this.data.username)
-      formdata.append('email', this.data.email)
-      formdata.append('phoneNumber', this.data.phoneNumber)
-      formdata.append('address', this.data.address)
+      const formData = new FormData()
+      formData.append('username', this.data.username)
+      formData.append('email', this.data.email)
+      formData.append('phoneNumber', this.data.phoneNumber)
+      formData.append('address', this.data.address)
 
       const data = {
         id: this.userId,
-        data: formdata
+        data: formData
       }
       this.updateUser(data)
         .then((res) => {
