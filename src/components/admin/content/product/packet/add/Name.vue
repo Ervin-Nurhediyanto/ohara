@@ -2,14 +2,14 @@
   <div class="col-12 p-1">
     <div class="inputGroup">
       <input type="text" required="" autocomplete="off" v-model="data" @change.prevent="handleChange">
-      <label for="name">Product Name</label>
+      <label for="name">Packet Name</label>
     </div>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'Input',
+  name: 'Name-Packet',
   data () {
     return {
       data: ''

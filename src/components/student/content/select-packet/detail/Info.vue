@@ -1,9 +1,11 @@
 <template>
 <div class="card">
   <div class="content">
-    <p class="heading">{{ product.packet.name }}</p>
-    <p v-for="i in product.packet.desc.length" :key="i" class="para">
-      * {{ product.packet.desc[i-1] }}
+    <p class="heading">{{ product.name }}</p>
+    <!-- <p class="heading">{{ product.packet.name }}</p> -->
+    <!-- <p v-for="i in product.packet.desc.length" :key="i" class="para"> -->
+    <p v-for="i in product.points.length" :key="i" class="para">
+      * {{ product.points[i-1] }}
     </p>
   </div>
 </div>
@@ -30,6 +32,7 @@ export default {
   align-items: center;
   justify-content: center;
   /* width: 320px; */
+  width: 100%;
   height: 100%;
   padding: 2px;
   border-radius: 24px;
@@ -42,6 +45,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   height: 80vh;
   gap: 24px;
   padding: 34px;

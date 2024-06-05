@@ -1,18 +1,20 @@
 <template>
   <div class="col-12 p-1">
-    <div class="inputGroup">
-      <input type="text" required="" autocomplete="off" v-model="data" @change.prevent="handleChange">
-      <label for="name">Product Name</label>
+    <button @click.prevent="addPoint">Add Point</button>
+    <div v-for="i in data.length" :key="i" class="inputGroup">
+      <input type="text" required="" autocomplete="off" v-model="data[i-1]" @change.prevent="handleChange">
+      <label for="name">Point Description</label>
+      <button class="mt-1"  @click.prevent="deletePoint(i-1)">Delete</button>
     </div>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'Input',
+  name: 'Point-Packet',
   data () {
     return {
-      data: ''
+      data: []
     }
   },
   components: {},
@@ -21,6 +23,12 @@ export default {
   methods: {
     handleChange () {
       this.$emit('handleChange', this.data)
+    },
+    addPoint () {
+      this.data.push('')
+    },
+    deletePoint (index) {
+      this.data.splice(index, 1)
     }
   }
 }

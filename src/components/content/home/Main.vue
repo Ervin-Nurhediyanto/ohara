@@ -1,7 +1,8 @@
 <template>
   <div class="row h-91vh m-0 p-0">
     <div class="row m-0 p-0">
-      <div class="d-flex h-50vh justify-content-center align-items-end">
+      <!-- <div class="d-flex h-50vh justify-content-center align-items-end"> -->
+      <div class="d-flex bimbel justify-content-center align-items-end">
         <span class="display-1 ff-fantasy ts-white">BIMBEL OHARA</span>
       </div>
       <div class="d-flex h-5vh justify-content-center">
@@ -46,21 +47,19 @@ export default {
 </script>
 
 <style>
-/* .bg-home {
-  background-image: url(../../../assets/bg/bg-01.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
 .box-shadow-2px {
   box-shadow: 2px 2px 0px 0px;
 }
 .fs-10px {
   font-size: 10px
 }
+.bimbel {
+  height: 30vh;
+}
 
-/* @media (max-width: 1200px) {
-  .bg-home {
-    background-size: cover;
+@media (min-width: 1200px) {
+  .bimbel {
+    height: 50vh;
   }
-} */
+}
 </style>

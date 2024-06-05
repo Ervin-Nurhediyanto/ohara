@@ -1,17 +1,19 @@
 <template>
   <div class="col-12 p-1 selectGroup">
-    <div><b>Mata Pelajaran</b></div>
+    <div><b>Kelas</b></div>
     <select name="" id="" class="" @change.prevent="handleChange">
-      <option value="Matematika" selected>Matematika</option>
-      <option value="IPA">IPA</option>
-      <option value="Bahasa Inggris">Bahasa Inggris</option>
+      <option value="Kelas 4" selected>Kelas 4</option>
+      <option value="Kelas 5">Kelas 5</option>
+      <option value="Kelas 6">Kelas 6</option>
+      <option value="Kelas 7">Kelas 7</option>
+      <option value="Kelas 8">Kelas 8</option>
     </select>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'Select-Option',
+  name: 'Grade-Packet',
   data () {
     return {}
   },

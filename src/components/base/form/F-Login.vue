@@ -35,8 +35,8 @@ export default {
         .then((res) => {
           this.findRole(res.data.data.roleId)
             .then((result) => {
-              // const role = result.data.data[0].name
-              const role = result[0].data.data[0].name
+              const role = result.data.data[0].name
+              // const role = result[0].data.data[0].name
               if (role === 'ADMIN') {
                 this.$router.replace({
                   name: 'Dashboard-Admin'
@@ -83,8 +83,6 @@ form {
   width: 300px;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-  /* margin-top: 50px;
-  margin-left: 100px; */
 }
 
 form input {
@@ -149,11 +147,4 @@ form .create-account:hover {
     margin-left: 100px;
   }
 }
-
-/* @media screen (max-width: 1200px) {
-  form {
-    margin-top: 50px;
-    margin-left: 100px;
-  }
-} */
 </style>

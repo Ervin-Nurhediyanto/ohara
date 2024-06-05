@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 p-1">
+  <div class="col-12 p-3">
     <button class="pushable">
       <span class="shadow"></span>
       <span class="edge"></span>

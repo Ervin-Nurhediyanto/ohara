@@ -6,12 +6,12 @@
       <option value="IPA">IPA</option>
       <option value="Bahasa Inggris">Bahasa Inggris</option>
     </select>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Select-Option',
+  name: 'Mapel-Packet',
   data () {
     return {}
   },

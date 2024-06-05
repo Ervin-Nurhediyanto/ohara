@@ -2,6 +2,8 @@ import { createStore } from 'vuex'
 import Users from './users'
 import Roles from './roles'
 import Products from './products'
+import Packets from './packets'
+import Finances from './finances'
 
 export default createStore({
   state: {},
@@ -10,6 +12,8 @@ export default createStore({
   modules: {
     Users,
     Roles,
-    Products
+    Products,
+    Packets,
+    Finances
   }
 })

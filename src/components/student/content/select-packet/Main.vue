@@ -17,18 +17,19 @@
     </div>
     <!-- PACKET -->
     <div v-if="isSelect && selectClass !== '' && !isDetail" class="row h-90vh m-0 p-0 d-flex justify-content-center">
-      <div v-for="i in optionProduct.length" :key="i" class="col-11 col-lg-3 h-35vh m-1 p-2 rounded-4 bg-white">
-        <div class="h-35vh">
+      <div v-for="i in optionProduct.length" :key="i" class="col-11 col-lg-3 h-35vh m-1 p-2">
+        <img :src="optionProduct[i-1].image" alt="" class="img c-pointer" @click.prevent="handleBuy(optionProduct[i-1], selectClass)">
+        <!-- <div class="h-35vh">
           <div class="d-flex justify-content-center"><b>{{ optionProduct[i-1].name }}</b></div>
           <div>{{ selectClass }}</div>
-          <div v-for="j in optionProduct[i-1].desc.length" :key="j">
-            <div>* {{ optionProduct[i-1].desc[j-1] }}</div>
+          <div v-for="j in optionProduct[i-1].points.length" :key="j">
+            <div>* {{ optionProduct[i-1].points[j-1] }}</div>
           </div>
-          <div>* Biaya: {{ optionProduct[i-1].cost }}</div>
+          <div>* Biaya: {{ optionProduct[i-1].price }}</div>
           <div class="mt-3">
             <button @click.prevent="handleBuy(optionProduct[i-1], selectClass)" class="">PILIH</button>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- DETAIL -->
@@ -40,10 +41,11 @@
 </template>
 
 <script>
-import Product01 from '../../../../assets/card/Private_Offline.png'
-import Product02 from '../../../../assets/card/Private_Online.png'
-import Product03 from '../../../../assets/card/Kelas_Offline.png'
-import Product04 from '../../../../assets/card/Voucher_Tugas.png'
+import { mapActions } from 'vuex'
+// import Product01 from '../../../../assets/card/Private_Offline.png'
+// import Product02 from '../../../../assets/card/Private_Online.png'
+// import Product03 from '../../../../assets/card/Kelas_Offline.png'
+// import Product04 from '../../../../assets/card/Voucher_Tugas.png'
 import Dropdown from '../../../../components/base/dropdown/Drop-Down.vue'
 import Detail from './detail/Main.vue'
 
@@ -59,47 +61,47 @@ export default {
       selectClass: '',
       optionProduct: [],
       products: [
-        {
-          name: 'Private Offline',
-          image: Product01,
-          packets: [
-            {
-              class: 'Kelas 4',
-              options: [
-                {
-                  name: 'PRIVATE OFFLINE BULANAN PAKET A',
-                  desc: [
-                    '8 Kali Pertemuan per Bulan',
-                    'Tutor Berkualitas',
-                    'Lokasi: Ruang Kelas Ohara'
-                  ],
-                  cost: 'Rp280.000'
-                },
-                {
-                  name: 'PRIVATE OFFLINE BULANAN PAKET B',
-                  desc: [
-                    '8 Kali Pertemuan per Bulan',
-                    'Tutor Berkualitas',
-                    'Lokasi: Rumah SIswa'
-                  ],
-                  cost: 'Rp360.000'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          name: 'Private Online',
-          image: Product02
-        },
-        {
-          name: 'Kelas Offline',
-          image: Product03
-        },
-        {
-          name: 'Voucher Tugas',
-          image: Product04
-        }
+        // {
+        //   name: 'Private Offline',
+        //   image: Product01,
+        //   packets: [
+        //     {
+        //       class: 'Kelas 4',
+        //       options: [
+        //         {
+        //           name: 'PRIVATE OFFLINE BULANAN PAKET A',
+        //           desc: [
+        //             '8 Kali Pertemuan per Bulan',
+        //             'Tutor Berkualitas',
+        //             'Lokasi: Ruang Kelas Ohara'
+        //           ],
+        //           cost: 'Rp280.000'
+        //         },
+        //         {
+        //           name: 'PRIVATE OFFLINE BULANAN PAKET B',
+        //           desc: [
+        //             '8 Kali Pertemuan per Bulan',
+        //             'Tutor Berkualitas',
+        //             'Lokasi: Rumah SIswa'
+        //           ],
+        //           cost: 'Rp360.000'
+        //         }
+        //       ]
+        //     }
+        //   ]
+        // },
+        // {
+        //   name: 'Private Online',
+        //   image: Product02
+        // },
+        // {
+        //   name: 'Kelas Offline',
+        //   image: Product03
+        // },
+        // {
+        //   name: 'Voucher Tugas',
+        //   image: Product04
+        // }
       ],
       services: [
         {
@@ -130,7 +132,25 @@ export default {
     Detail
   },
   computed: {},
+  mounted () {
+    this.handleProduct()
+  },
   methods: {
+    ...mapActions(['getProducts', 'getPackets']),
+    handleProduct () {
+      this.getProducts()
+        .then((res) => {
+          this.products = res.data.data
+        })
+    },
+    handlePacket () {
+      this.getPackets({ productId: this.selectProduct._id, grade: this.selectClass })
+        .then((res) => {
+          this.packets = res.data.data
+          this.optionProduct = this.packets
+          console.log(this.optionProduct)
+        })
+    },
     select (product) {
       this.isSelect = !this.isSelect
       this.selectProduct = product
@@ -143,22 +163,24 @@ export default {
     },
     handleClass (data) {
       this.selectClass = data
-      if (this.selectProduct.name === 'Private Offline') {
-        const product = this.products[0]
-        if (data === 'Kelas 4') {
-          this.optionProduct = product.packets[0].options
-        }
-        console.log(this.optionProduct)
-      }
+      this.handlePacket()
+      // if (this.selectProduct.name === 'Private Offline') {
+      //   const product = this.products[0]
+      //   if (data === 'Kelas 4') {
+      //     this.optionProduct = product.packets[0].options
+      //   }
+      //   console.log(this.optionProduct)
+      // }
     },
     handleBuy (packet, kelas) {
-      console.log(packet, kelas)
+      // console.log(packet, kelas)
       this.isDetail = true
-      this.detailProduct = {
-        image: this.selectProduct.image,
-        class: kelas,
-        packet: packet
-      }
+      this.detailProduct = packet
+      // this.detailProduct = {
+      //   image: this.selectProduct.image,
+      //   class: kelas,
+      //   packet: packet
+      // }
       console.log(this.detailProduct)
     }
   }

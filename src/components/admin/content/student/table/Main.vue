@@ -20,7 +20,7 @@
         </td>
         <td class="h-5vh w-10 m-0 p-0 border border-2 border-dark">
           <div class="d-flex m-0 p-0 py-1 justify-content-center">
-            <div class="text-primary text-center c-pointer">check invoice</div>
+            <div class="text-primary text-center c-pointer" @click.prevent="handleInvoice(student[i-1])">check invoice</div>
           </div>
         </td>
         <td class="h-5vh w-10 px-1 border border-2 border-dark">
@@ -49,6 +49,9 @@ export default {
   computed: {},
   mounted () {},
   methods: {
+    handleInvoice (data) {
+      this.$emit('handleInvoice', { name: data.username, id: data._id })
+    },
     handleStatus (data) {
       this.$emit('handleStatus', data)
     }

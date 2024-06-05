@@ -1,6 +1,8 @@
 <template>
-  <div class="col-10 col-lg-3">
-    <f-form/>
+  <div class="d-flex h-80vh justify-content-center align-items-center">
+    <div class="col-10 col-lg-3">
+      <f-form/>
+    </div>
   </div>
 </template>
 

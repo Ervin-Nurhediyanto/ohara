@@ -4,7 +4,7 @@
     <add-text-area v-on:handleChange="changeDesc"/>
     <add-select-option v-on:handleChange="changeMapel"/>
     <add-image v-on:handleChange="changeImage"/>
-    <add-button v-on:handleClick="handleSubmit"/>
+    <add-button :text="'save'" v-on:handleClick="handleSubmit"/>
   </div>
 </template>
 
@@ -52,7 +52,7 @@ export default {
             .then((res) => {
               console.log(res.data)
               alert('update sukses')
-              this.$emit('handleProduct')
+              this.$emit('update')
             })
         })
     },

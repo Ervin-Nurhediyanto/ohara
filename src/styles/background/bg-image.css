@@ -1,5 +1,5 @@
 .bg-home {
-  background-image: url(../../assets/bg/bg-01.png);
+  background-image: url(../../assets/bg/bg-mobile-01.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -37,4 +37,10 @@
   background-image: url(../../assets/bg/bg-05.png);
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media (min-width: 1200px) {
+  .bg-home {
+    background-image: url(../../assets/bg/bg-01.png);
+  }
 }

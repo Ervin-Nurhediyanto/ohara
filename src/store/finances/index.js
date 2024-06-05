@@ -3,7 +3,7 @@ import find from './find'
 import insert from './insert'
 import update from './update'
 
-const Products = {
+const Finances = {
   state: {},
   getters: {},
   mutations: {},
@@ -16,4 +16,4 @@ const Products = {
   }
 }
 
-export default Products
+export default Finances

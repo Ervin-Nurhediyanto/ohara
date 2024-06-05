@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'Add-Image',
+  name: 'Image-Product',
   data () {
     return {}
   },

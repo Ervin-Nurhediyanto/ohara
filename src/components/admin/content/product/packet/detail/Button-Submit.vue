@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 p-1">
+  <div class="col-12 p-1 d-flex justify-content-center">
     <button class="pushable">
       <span class="shadow"></span>
       <span class="edge"></span>
