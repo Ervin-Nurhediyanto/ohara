@@ -16,7 +16,7 @@
           <div class="text-primary text-center c-pointer">check packet</div>
         </td>
         <td class="h-5vh w-10 px-1 border border-2 border-dark">
-          <div class="text-primary text-center c-pointer">check schedule</div>
+          <div class="text-primary text-center c-pointer" @click.prevent="handleSchedule(student[i-1])">check schedule</div>
         </td>
         <td class="h-5vh w-10 m-0 p-0 border border-2 border-dark">
           <div class="d-flex m-0 p-0 py-1 justify-content-center">
@@ -49,6 +49,9 @@ export default {
   computed: {},
   mounted () {},
   methods: {
+    handleSchedule (data) {
+      this.$emit('handleSchedule', { name: data.username, id: data._id })
+    },
     handleInvoice (data) {
       this.$emit('handleInvoice', { name: data.username, id: data._id })
     },

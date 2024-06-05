@@ -5,6 +5,7 @@
     <th class="h-5vh w-10 px-1 border border-2 border-dark">Class</th>
     <th class="h-5vh w-10 px-1 border border-2 border-dark">Tutor</th>
     <th class="h-5vh w-10 px-1 border border-2 border-dark">Mapel</th>
+    <th class="h-5vh w-10 px-1 border border-2 border-dark">Modul</th>
     <th class="h-5vh w-10 px-1 border border-2 border-dark">Presensi</th>
     <th class="h-5vh w-11 px-1 border border-2 border-dark">Sesion</th>
   </tr>

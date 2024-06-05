@@ -10,7 +10,7 @@
       v-on:handleClick="handleAdd"
     />
     <table-student
-      v-if="!isInsert && !isInvoice"
+      v-if="!isInsert && !isInvoice &&  !isSchedule"
       :student="student"
       v-on:handlePacket="handlePacket"
       v-on:handleSchedule="handleSchedule"
@@ -18,10 +18,19 @@
       v-on:handleStatus="handleStatus"
     />
     <table-invoice
+      v-if="isInvoice"
       :data="select"
       :finances="finances"
       v-on:handleUpload="handleUpload"
       v-on:handleStatus="handleStatusInvoice"
+    />
+    <table-schedule
+      v-if="isSchedule"
+      :data="select"
+      :schedules="schedules"
+      :availableSchedules="availableSchedules"
+      v-on:handleDay="handleDay"
+      v-on:handleTime="handleTime"
     />
     <add-student v-if="isInsert"/>
   </div>
@@ -32,6 +41,7 @@ import { mapActions } from 'vuex'
 import Navbar from './Nav.vue'
 import TableStudent from './table/Main.vue'
 import TableInvoice from './invoice/Main.vue'
+import TableSchedule from './schedule/Main.vue'
 import AddStudent from './add/Main.vue'
 
 export default {
@@ -42,16 +52,20 @@ export default {
       title: 'STUDENT ADMIN',
       isInsert: false,
       isInvoice: false,
+      isSchedule: false,
       textBtn: ['Add', '+'],
       student: [],
       select: {},
-      finances: []
+      finances: [],
+      schedules: [],
+      availableSchedules: []
     }
   },
   components: {
     Navbar,
     TableStudent,
     TableInvoice,
+    TableSchedule,
     AddStudent
   },
   computed: {},
@@ -59,7 +73,15 @@ export default {
     this.getUser()
   },
   methods: {
-    ...mapActions(['getUsers', 'getFinances', 'updateFinances']),
+    ...mapActions([
+      'getUsers',
+      'getFinances',
+      'getSchedules',
+      'insertSchedule',
+      'updateFinances',
+      'updateSchedule',
+      'deleteSchedule'
+    ]),
     getUser () {
       const data = { roleId: this.roles.student }
       this.getUsers(data)
@@ -68,10 +90,14 @@ export default {
         })
     },
     handleAdd () {
-      if (!this.isInvoice) {
+      if (!this.isInvoice && !this.isSchedule) {
         this.isInsert = !this.isInsert
-      } else {
+      }
+      if (this.isInvoice) {
         this.isInvoice = !this.isInvoice
+      }
+      if (this.isSchedule) {
+        this.isSchedule = !this.isSchedule
       }
       if (this.textBtn[0] === 'Back') {
         this.textBtn = ['Add', '+']
@@ -85,6 +111,25 @@ export default {
       this.textBtn = ['Back', '-']
       this.select = data
       this.handleFinance()
+    },
+    handleSchedule (data) {
+      this.isSchedule = !this.isSchedule
+      this.textBtn = ['Back', '-']
+      this.select = data
+      this.handleDataSchedule()
+      this.handleAvailabeSchedule()
+    },
+    handleDataSchedule () {
+      this.getSchedules({ studentId: this.select.id })
+        .then((res) => {
+          this.schedules = res.data.data
+        })
+    },
+    handleAvailabeSchedule () {
+      this.getSchedules({ status: 'Available', time: '-' })
+        .then((res) => {
+          this.availableSchedules = res.data.data
+        })
     },
     handleFinance () {
       this.getFinances({ userId: this.select.id })
@@ -139,11 +184,59 @@ export default {
 
       this.updateFinances(payload)
         .then((res) => {
-          console.log(res.data)
           alert('update sukses')
           this.$emit('update')
           this.handleFinance()
+          if (data.status === 'Sukses') {
+            for (let i = 0; i < 2; i++) {
+              this.addSchecule(data)
+            }
+          }
         })
+    },
+    handleDay (data) {
+      const payload = {
+        id: data.data._id,
+        data: {
+          day: data.day
+        }
+      }
+      this.updateSchedule(payload)
+        .then((res) => {
+          alert('update sukses')
+          this.$emit('update')
+          this.handleDataSchedule()
+        })
+    },
+    handleTime (data) {
+      const payload = {
+        id: data.data._id,
+        data: {
+          tutorId: data.schedule.tutorId,
+          time: data.time,
+          status: 'Ongoing'
+        }
+      }
+      this.updateSchedule(payload)
+        .then((res) => {
+          alert('update sukses')
+          this.$emit('update')
+          this.handleDataSchedule()
+          this.deleteSchedule({ id: data.schedule._id })
+        })
+    },
+    addSchecule (data) {
+      const payload = {
+        studentId: data.data.userId,
+        tutorId: '',
+        productId: data.data.productId,
+        productName: data.data.productName,
+        date: '',
+        day: '',
+        time: '',
+        status: 'Available'
+      }
+      this.insertSchedule(payload)
     },
     handleStatus (data) {
       this.student[data.index].status = data.status

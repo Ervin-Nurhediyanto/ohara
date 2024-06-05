@@ -4,13 +4,18 @@
       <h3><b>{{ title }}</b></h3>
     </div>
     <div class="row h-90vh m-0 p-0 overflow scrollbar-none">
-      <div class="col-12 m-0 p-0 col-lg-9">
+      <div class="col-12 col-lg-9 m-0 p-0">
         <div class="row m-0 p-2 py-2">
-          <div v-for="i in data.length" :key="i" class="col-12 col-lg-3 h-40vh m-1 p-1 border border-1 rounded-4 bs-3px bg-paper">
+          <div v-for="i in data.length" :key="i" class="col-12 col-lg-3 h-40vh m-0 p-1 border border-1 rounded-4 bs-5px bg-grey">
             <span class="d-flex justify-content-center text-white ts-dark"><b>{{ data[i-1].title }}</b></span>
-            <div v-for="j in data[i-1].packets.length" :key="j" class="row m-0 mt-1 p-0 c-pointer" @click.prevent="handleClick(data[i-1].packets[j-1])">
-              <div class="col-6 m-0 p-0 px-1"><b>{{ data[i-1].packets[j-1].tutor }}</b></div>
-              <div class="col-6 d-flex m-0 p-0 px-1 justify-content-center">{{ data[i-1].packets[j-1].time }}</div>
+            <div
+              v-for="j in data[i-1].packets.length"
+              :key="j"
+              class="row m-0 mt-1 p-0 c-pointer"
+              @click.prevent="handleClick(data[i-1].packets[j-1])"
+            >
+              <div class="col-12 m-0 p-0 px-1"><b>{{ data[i-1].packets[j-1].productName }}</b></div>
+              <div class="col-12 d-flex m-0 p-0 px-1 justify-content-end">{{ data[i-1].packets[j-1].time }}</div>
             </div>
           </div>
         </div>
@@ -20,14 +25,18 @@
         <div><b>Tutor: {{ select.tutor }}</b></div>
         <div><b>Hari: {{ select.day }}</b></div>
         <div><b>Waktu: {{ select.time }}</b></div>
-        <div><b>Paket: {{ select.packet }}</b></div>
-        <div><b>Lokasi: {{ select.location }}</b></div>
+        <div><b>Product: {{ select.product }}</b></div>
+        <div><b>Paket: {{ select.productName }}</b></div>
+        <div><b>Mapel: {{ select.mapel }}</b></div>
+        <div><b>Kelas: {{ select.grade }}</b></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'Main-Schedule-Student',
   data () {
@@ -35,51 +44,71 @@ export default {
       title: 'SCHEDULE STUDENT',
       select: {
         tutor: '',
-        time: '',
         day: '',
+        time: '',
+        product: '',
         packet: '',
-        location: ''
+        mapel: '',
+        grade: ''
       },
       data: [
-        {
-          title: 'SENIN',
-          packets: [
-            {
-              tutor: 'TUTOR BAIK',
-              time: '15.00 - 16.00',
-              day: 'SENIN',
-              packet: 'PRIVATE ONLINE',
-              location: 'Online'
-            }
-          ]
-        },
-        {
-          title: 'SELASA',
-          packets: [
-            {
-              tutor: 'TUTOR TELADAN',
-              time: '16.00 - 17.00',
-              day: 'SELASA',
-              packet: 'PRIVATE OFFLINE',
-              location: 'Jl. Kemana mana'
-            },
-            {
-              tutor: 'TUTOR SOPAN',
-              time: '19.00 - 20.00',
-              day: 'SELASA',
-              packet: 'KELAS OFFLINE',
-              location: 'Ruang Kelas Ohara'
-            }
-          ]
-        }
+        { title: 'SENIN', packets: [] },
+        { title: 'SELASA', packets: [] },
+        { title: 'RABU', packets: [] },
+        { title: 'KAMIS', packets: [] },
+        { title: 'JUMAT', packets: [] },
+        { title: 'SABTU', packets: [] },
+        { title: 'MINGGU', packets: [] }
       ]
     }
   },
   components: {},
-  computed: {},
+  computed: {
+    ...mapGetters({
+      userId: 'userId'
+    })
+  },
+  mounted () {
+    this.handleGetSchedule()
+  },
   methods: {
+    ...mapActions([
+      'getUser',
+      'getSchedules',
+      'findProduct',
+      'findPacket'
+    ]),
+    handleGetSchedule () {
+      this.getSchedules({ studentId: this.userId, status: 'Ongoing' })
+        .then((res) => {
+          const data = res.data.data
+          data.map((item) => {
+            this.checkSchedule(item)
+          })
+        })
+    },
+    checkSchedule (data) {
+      this.data.map((item) => {
+        if (item.title === data.day.toUpperCase()) {
+          item.packets.push(data)
+        }
+      })
+    },
     handleClick (data) {
       this.select = data
+      this.getUser({ id: data.tutorId })
+        .then((res) => {
+          this.select.tutor = res.data.data[0].username
+        })
+      this.findPacket({ id: data.productId })
+        .then((res) => {
+          this.select.mapel = res.data.data[0].mapel
+          this.select.grade = res.data.data[0].grade
+          this.findProduct({ id: res.data.data[0].productId })
+            .then((result) => {
+              this.select.product = result.data.data[0].name
+            })
+        })
     }
   }
 }

@@ -17,7 +17,7 @@
           <div class="text-primary text-center c-pointer"><u>check module</u></div>
         </td>
         <td class="h-5vh w-10 m-0 p-0 border border-2 border-dark">
-          <div class="text-primary text-center c-pointer"><u>check schedule</u></div>
+          <div class="text-primary text-center c-pointer" @click.prevent="handleSchedule(tutors[i-1])"><u>check schedule</u></div>
         </td>
         <td class="h-5vh w-10 px-1 border border-2 border-dark">
           <div class="d-flex m-0 p-0 py-1 justify-content-center">
@@ -44,6 +44,9 @@ export default {
   },
   computed: {},
   methods: {
+    handleSchedule (data) {
+      this.$emit('handleSchedule', { name: data.username, id: data._id })
+    },
     handleStatus (data) {
       this.$emit('handleStatus', data)
     }

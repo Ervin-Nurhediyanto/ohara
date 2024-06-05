@@ -5,6 +5,7 @@
     <th class="h-5vh w-10 px-1 border border-2 border-dark">Kelas 4</th>
     <th class="h-5vh w-10 px-1 border border-2 border-dark">Tutor Baik</th>
     <th class="h-5vh w-10 px-1 border border-2 border-dark">Matematika</th>
+    <th class="h-5vh w-10 px-1 border border-2 border-dark fs-12px text-primary">Klik Here</th>
     <th class="h-5vh w-10 p-1 border border-2 border-dark">
       <div class="d-flex justify-content-center">
         <btn-presensi v-on:handlePresensi="handlePresensi"/>
