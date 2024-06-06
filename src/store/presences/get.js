@@ -13,11 +13,9 @@ const Get = {
   mutations: {},
   actions: {
     getPresences (setex, payload) {
-      const search = '?'
-      // let search = '?'
-      // if (payload.studentId) { search += `studentId=${payload.studentId}&&` }
-      // if (payload.tutorId) { search += `tutorId=${payload.tutorId}&&` }
-      // if (payload.product) { search += `product=${payload.product}&&` }
+      let search = '?'
+      if (payload.classId) { search += `classId=${payload.classId}&&` }
+
       return new Promise((resolve, reject) => {
         axios
           .get(url + `/presences/${search}`, payload)

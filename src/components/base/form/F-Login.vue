@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Template-Form-Login',
@@ -23,40 +23,44 @@ export default {
     }
   },
   components: {},
-  computed: {
-    ...mapGetters({
-      username: 'username'
-    })
-  },
+  computed: {},
   methods: {
     ...mapActions(['login', 'findRole']),
     handleLogin () {
       this.login(this.form)
         .then((res) => {
-          this.findRole(res.data.data.roleId)
-            .then((result) => {
-              const role = result.data.data[0].name
-              // const role = result[0].data.data[0].name
-              if (role === 'ADMIN') {
-                this.$router.replace({
-                  name: 'Dashboard-Admin'
-                })
-              }
-              if (role === 'TUTOR') {
-                this.$router.replace({
-                  name: 'Dashboard-Tutor'
-                })
-              }
-              if (role === 'STUDENT') {
-                this.$router.replace({
-                  name: 'Dashboard-Student'
-                })
-              }
-            })
+          this.handleRole(res.data.data.roleId)
         })
         .catch(() => {
           alert('Username atau Password salah')
         })
+    },
+    handleRole (id) {
+      this.findRole(id)
+        .then((res) => {
+          // const role = result[0].data.data[0].name
+          this.handleRouter(res.data.data[0].name)
+        })
+    },
+    handleRouter (role) {
+      if (role === 'ADMIN') {
+        this.$router.replace({
+          name: 'Dashboard-Admin'
+        })
+      }
+      if (role === 'TUTOR') {
+        this.$router.replace({
+          name: 'Dashboard-Tutor'
+        })
+      }
+      if (role === 'STUDENT') {
+        this.$router.replace({
+          name: 'Dashboard-Student'
+        })
+      }
+    },
+    pageRefresh () {
+      this.$router.go(0)
     },
     handleRegister () {
       this.$router.replace({

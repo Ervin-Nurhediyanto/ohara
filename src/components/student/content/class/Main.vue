@@ -13,7 +13,7 @@
       </table>
       <table v-else class="h-5vh">
         <header-presensi />
-        <data-presensi v-for="i in dataPresensi.length" :key="i" :no="i"/>
+        <data-presensi v-for="i in dataPresensi.length" :key="i" :no="i" :data="dataPresensi[i-1]"/>
       </table>
       <div class="h-80vh"></div>
     </div>
@@ -34,8 +34,8 @@ export default {
       title: 'CLASS STUDENT',
       isPresensi: false,
       classes: [],
-      dataPresensi: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-      // dataPresensi: []
+      // dataPresensi: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+      dataPresensi: []
     }
   },
   components: {
@@ -53,7 +53,7 @@ export default {
     this.handleClass()
   },
   methods: {
-    ...mapActions(['getClasses']),
+    ...mapActions(['getClasses', 'getPresences']),
     handleClass () {
       const data = { studentId: this.userId }
       this.getClasses(data)
@@ -61,8 +61,12 @@ export default {
           this.classes = res.data.data
         })
     },
-    handlePresensi () {
+    handlePresensi (data) {
       this.isPresensi = !this.isPresensi
+      this.getPresences({ classId: data.id })
+        .then((res) => {
+          this.dataPresensi = res.data.data
+        })
     },
     handleBack () {
       this.isPresensi = !this.isPresensi

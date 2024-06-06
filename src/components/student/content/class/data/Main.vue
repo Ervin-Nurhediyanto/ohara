@@ -32,7 +32,7 @@ export default {
   computed: {},
   methods: {
     handlePresensi () {
-      this.$emit('handlePresensi')
+      this.$emit('handlePresensi', { id: this.data._id })
     }
   }
 }

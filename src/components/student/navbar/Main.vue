@@ -1,7 +1,8 @@
 <template>
   <div class="col-2 text-white bg-info">
-    <PP :image="data.image"/><hr/>
-    <div class="d-none d-sm-flex c-default">{{ data.username }}</div><hr class="d-none d-sm-flex"/>
+    <PP/><hr/>
+    <div class="d-none d-sm-flex c-default">{{ username }}</div>
+    <hr class="d-none d-sm-flex"/>
     <div class="c-pointer">
       <dashboard/>
       <profile/>
@@ -15,6 +16,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import PP from './Photo-Profile.vue'
 import Dashboard from './Dashboard.vue'
 import Profile from './Profile.vue'
@@ -26,7 +28,6 @@ import Logout from './Logout'
 
 export default {
   name: 'Main-Navbar-Student',
-  props: ['data'],
   data () {
     return {}
   },
@@ -40,7 +41,11 @@ export default {
     Finance,
     Logout
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      username: 'username'
+    })
+  },
   mounted () {},
   methods: {}
 }

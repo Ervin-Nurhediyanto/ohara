@@ -84,12 +84,28 @@ export default {
     selectImage (data) {
       this.form.image = data
     },
+    getDayName (dayIndex) {
+      const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu']
+      return days[dayIndex]
+    },
+    formatDate (date) {
+      const day = String(date.getDate()).padStart(2, '0')
+      const month = String(date.getMonth() + 1).padStart(2, '0')
+      const year = date.getFullYear()
+      return `${day}-${month}-${year}`
+    },
+    formatTime (date) {
+      const hours = String(date.getHours()).padStart(2, '0')
+      const minutes = String(date.getMinutes()).padStart(2, '0')
+      return `${hours}:${minutes}`
+    },
     handleSubmit () {
+      const now = new Date()
       const data = {
         classId: this.form.classId,
-        day: '',
-        date: '',
-        time: '',
+        day: this.getDayName(now.getDay()),
+        date: this.formatDate(now),
+        time: this.formatTime(now),
         status: this.form.status,
         image: ''
       }

@@ -13,6 +13,7 @@ const Users = {
     user: localStorage.getItem('user') || null,
     userId: localStorage.getItem('userId') || null,
     username: localStorage.getItem('username') || null,
+    image: localStorage.getItem('image') || null,
     users: [],
     token: localStorage.getItem('token') || null
   },
@@ -29,6 +30,9 @@ const Users = {
     username (state) {
       return state.username
     },
+    image (state) {
+      return state.image
+    },
     users (state) {
       return state.users
     }
@@ -42,6 +46,9 @@ const Users = {
     },
     setUsername (state, payload) {
       state.username = payload
+    },
+    setImage (state, payload) {
+      state.image = payload
     },
     setUsers (state, payload) {
       state.users = payload
@@ -84,9 +91,12 @@ const Users = {
           .then(res => {
             const user = res.data.data
             setex.commit('setUser', user)
+            setex.commit('setUserId', user)
             setex.commit('setUsername', user.username)
+            setex.commit('setImage', user.image)
             localStorage.setItem('user', user)
             localStorage.setItem('userId', user._id)
+            localStorage.setItem('image', user.image)
             localStorage.setItem('username', user.username)
             localStorage.setItem('token', user.token)
             resolve(res)
