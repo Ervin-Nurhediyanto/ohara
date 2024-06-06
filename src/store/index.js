@@ -6,6 +6,7 @@ import Packets from './packets'
 import Finances from './finances'
 import Schedules from './schedules'
 import Classes from './classes'
+import Presences from './presences'
 
 export default createStore({
   state: {},
@@ -18,6 +19,7 @@ export default createStore({
     Packets,
     Finances,
     Schedules,
-    Classes
+    Classes,
+    Presences
   }
 })

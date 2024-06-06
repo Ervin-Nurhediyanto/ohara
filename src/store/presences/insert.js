@@ -7,15 +7,15 @@ if (process.env.VUE_APP_STATUS === 'production') {
   url = process.env.VUE_APP_BASE_URL
 }
 
-const Find = {
+const Insert = {
   state: {},
   getters: {},
   mutations: {},
   actions: {
-    findPresence (setex, payload) {
+    insertPresence (setex, payload) {
       return new Promise((resolve, reject) => {
         axios
-          .get(url + `/presences/${payload.id}`)
+          .post(url + '/presences', payload)
           .then(res => {
             resolve(res)
           })
@@ -27,4 +27,4 @@ const Find = {
   }
 }
 
-export default Find
+export default Insert

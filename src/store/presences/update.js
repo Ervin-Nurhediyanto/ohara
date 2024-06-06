@@ -7,15 +7,15 @@ if (process.env.VUE_APP_STATUS === 'production') {
   url = process.env.VUE_APP_BASE_URL
 }
 
-const Find = {
+const Update = {
   state: {},
   getters: {},
   mutations: {},
   actions: {
-    findPresence (setex, payload) {
+    updatePresence (setex, payload) {
       return new Promise((resolve, reject) => {
         axios
-          .get(url + `/presences/${payload.id}`)
+          .patch(url + `/presences/${payload.id}`, payload.data)
           .then(res => {
             resolve(res)
           })
@@ -27,4 +27,4 @@ const Find = {
   }
 }
 
-export default Find
+export default Update

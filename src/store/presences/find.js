@@ -12,10 +12,10 @@ const Find = {
   getters: {},
   mutations: {},
   actions: {
-    findPresence (setex, payload) {
+    findClass (setex, payload) {
       return new Promise((resolve, reject) => {
         axios
-          .get(url + `/presences/${payload.id}`)
+          .get(url + `/classes/${payload.id}`)
           .then(res => {
             resolve(res)
           })

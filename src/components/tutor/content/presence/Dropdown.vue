@@ -41,6 +41,9 @@ export default {
             this.options.push(item.student)
           }
         }
+        if (this.text === 'Presence') {
+          this.options = ['Hadir', 'Tidak Hadir']
+        }
       })
     }
   }

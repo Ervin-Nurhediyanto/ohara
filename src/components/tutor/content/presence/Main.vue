@@ -10,6 +10,9 @@
       <div class="col-12 h-5vh m-0 p-0 text-center">
         <dropdown :items="classes" :select="student" :text="'Student'" v-on:handleClick="selectStudent"/>
       </div>
+      <div class="col-12 h-5vh m-0 p-0 text-center">
+        <dropdown :items="classes" :select="status" :text="'Presence'" v-on:handleClick="selectStatus"/>
+      </div>
       <div class="col-12 h-15vh m-0 p-0">
         <input-image v-on:handleChange="selectImage"/>
       </div>
@@ -35,7 +38,8 @@ export default {
       classes: [],
       product: '',
       student: '',
-      class: ''
+      status: '',
+      form: {}
     }
   },
   components: {
@@ -52,7 +56,7 @@ export default {
     this.handleClass()
   },
   methods: {
-    ...mapActions(['getClasses']),
+    ...mapActions(['getClasses', 'insertPresence', 'updatePresence']),
     handleClass () {
       this.getClasses({ tutorId: this.userId })
         .then((res) => {
@@ -70,11 +74,41 @@ export default {
       this.student = data.option
       this.getClasses({ product: this.product, student: data.option })
         .then((res) => {
-          this.class = res.data.data[0]
+          this.form.classId = res.data.data[0]._id
         })
     },
-    selectImage () {},
-    handleSubmit () {}
+    selectStatus (data) {
+      this.form.status = data.option
+      this.status = data.option
+    },
+    selectImage (data) {
+      this.form.image = data
+    },
+    handleSubmit () {
+      const data = {
+        classId: this.form.classId,
+        day: '',
+        date: '',
+        time: '',
+        status: this.form.status,
+        image: ''
+      }
+      this.insertPresence(data)
+        .then((res) => {
+          const formData = new FormData()
+          formData.append('image', this.form.image, this.form.image.name)
+
+          const data = {
+            id: res.data.data._id,
+            data: formData
+          }
+
+          this.updatePresence(data)
+            .then((res) => {
+              alert('Presence Success')
+            })
+        })
+    }
   }
 }
 </script>
