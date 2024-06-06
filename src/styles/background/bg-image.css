@@ -41,6 +41,7 @@
 
 @media (min-width: 1200px) {
   .bg-home {
-    background-image: url(../../assets/bg/bg-01.png);
+    /* background-image: url(../../assets/bg/bg-01.png); */
+    background-image: url(../../assets/bg/bg-ohara.jpeg);
   }
 }

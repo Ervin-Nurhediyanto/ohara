@@ -1,5 +1,5 @@
 <template>
-  <div class="row m-0 p-0 h-100vh bg-home">
+  <div class="row m-0 p-0 h-100vh">
     <Navbar v-on:handleMenuBar="handleMenuBar"/>
     <router-view class="shadow-sm"/>
     <Footer/>
