@@ -3,16 +3,6 @@
     <Navbar v-on:handleMenuBar="handleMenuBar"/>
     <router-view class="shadow-sm"/>
     <Footer/>
-    <div class="music-player">
-      <!-- <audio
-        ref="audio"
-        :src="bgm"
-        preload
-        loop
-        id="audio"
-      ></audio> -->
-      <!-- <div @click="toggleSound()" class="toggle-sound"></div> -->
-    </div>
   </div>
 </template>
 

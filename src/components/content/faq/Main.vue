@@ -1,13 +1,18 @@
 <template>
-  <div class="row h-90vh m-0 p-0 bg-faq">
+  <div class="row h-120vh m-0 p-0 bg-faq">
     <div class="d-flex row m-0 p-0">
       <div class="d-flex h-10vh justify-content-center">
         <b class="fs-1">Tanya Jawab</b>
       </div>
-      <div class="d-flex h-80vh justify-content-center">
-        <div class="col-10 col-lg-5 h-50vh mt-3 rounded bs-3px bg-info overflow scrollbar-none">
+      <div class="d-flex h-120vh justify-content-center">
+        <div class="col-10 col-lg-5 h-35vh mt-3 rounded bs-3px overflow scrollbar-none">
           <div v-for="i in faqs.q.length" :key="i" class="p-2">
-            <question :index="i-1" :question="faqs.q[i - 1]" :symbol="faqs.btn" v-on:handleClick="showAnswer"/>
+            <question
+              :index="i-1"
+              :question="faqs.q[i - 1]"
+              :symbol="faqs.btn"
+              class="ts-white"
+              v-on:handleClick="showAnswer"/>
             <answer v-if="faqs.isAns[i - 1]" :answer="faqs.a[i - 1]"/>
           </div>
         </div>

@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
 }
 .bg-about {
-  background-image: url(../../assets/bg/bg-03.jpg);
+  background-image: url(../../assets/bg/bg-about.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -44,4 +44,10 @@
     /* background-image: url(../../assets/bg/bg-01.png); */
     background-image: url(../../assets/bg/bg-ohara.jpeg);
   }
+  .bg-faq {
+    background-image: url(../../assets/bg/bg-faq.png);
+  }
+  /* .bg-about {
+    background-image: url(../../assets/bg/bg-about.jpeg);
+  } */
 }
