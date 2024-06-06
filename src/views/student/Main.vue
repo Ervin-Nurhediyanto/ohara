@@ -25,13 +25,13 @@ export default {
     })
   },
   mounted () {
-    this.getUser({ id: this.userId })
+    this.findUser({ id: this.userId })
       .then((res) => {
         this.data = res.data.data[0]
       })
   },
   methods: {
-    ...mapActions(['getUser'])
+    ...mapActions(['findUser'])
   }
 }
 

@@ -77,7 +77,11 @@ export default {
       'getUsers',
       'getFinances',
       'getSchedules',
+      'findUser',
+      'findProduct',
+      'findPacket',
       'insertSchedule',
+      'insertClass',
       'updateFinances',
       'updateSchedule',
       'deleteSchedule'
@@ -218,11 +222,62 @@ export default {
         }
       }
       this.updateSchedule(payload)
-        .then((res) => {
+        .then(() => {
           alert('update sukses')
           this.$emit('update')
           this.handleDataSchedule()
-          this.deleteSchedule({ id: data.schedule._id })
+
+          this.findPacket({ id: data.data.productId })
+            .then((resPacket) => {
+              const packet = resPacket.data.data[0]
+
+              this.findProduct({ id: packet.productId })
+                .then((resProduct) => {
+                  const product = resProduct.data.data[0]
+
+                  this.findUser({ id: data.schedule.tutorId })
+                    .then((resTutor) => {
+                      const tutor = resTutor.data.data[0]
+
+                      this.findUser({ id: data.data.studentId })
+                        .then((resStudent) => {
+                          const student = resStudent.data.data[0]
+
+                          // SESSION
+                          let start = new Date().toISOString()
+                          let end = new Date(new Date().setDate(new Date().getDate() + 30)).toISOString()
+
+                          const dateStart = new Date(start)
+                          const dayStart = dateStart.toLocaleString('default', { day: '2-digit' })
+                          const monthStart = dateStart.toLocaleString('default', { month: 'short' })
+                          const yearStart = dateStart.toLocaleString('default', { year: 'numeric' })
+                          start = dayStart + ' ' + monthStart + ' ' + yearStart
+
+                          const dateEnd = new Date(end)
+                          const dayEnd = dateEnd.toLocaleString('default', { day: '2-digit' })
+                          const monthEnd = dateEnd.toLocaleString('default', { month: 'short' })
+                          const yearEnd = dateEnd.toLocaleString('default', { year: 'numeric' })
+                          end = dayEnd + ' ' + monthEnd + ' ' + yearEnd
+
+                          const dataClass = {
+                            studentId: data.data.studentId,
+                            tutorId: data.schedule.tutorId,
+                            productId: packet.productId,
+                            packetId: data.data.productId,
+                            scheduleId: data.data._id,
+                            product: product.name,
+                            grade: packet.grade,
+                            tutor: tutor.username,
+                            student: student.username,
+                            mapel: packet.mapel,
+                            sesion: `${start} / ${end}`
+                          }
+                          this.insertClass(dataClass)
+                          this.deleteSchedule({ id: data.schedule._id })
+                        })
+                    })
+                })
+            })
         })
     },
     addSchecule (data) {

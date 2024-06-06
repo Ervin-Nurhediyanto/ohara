@@ -1,6 +1,7 @@
 <template>
   <div class="mt-3 d-flex justify-content-center">
-    <img :src="PBlank" class="image-pp rounded-4" alt="Photo Profile">
+    <img v-if="image" :src="image" class="image-pp rounded-4" alt="Photo Profile">
+    <img v-else :src="PBlank" class="image-pp rounded-4" alt="Photo Profile">
   </div>
 </template>
 
@@ -9,6 +10,7 @@ import PBlank from '../../../assets/PP_Blank.png'
 
 export default {
   name: 'PP-Navbar-Tutor',
+  props: ['image'],
   data () {
     return {
       PBlank: PBlank

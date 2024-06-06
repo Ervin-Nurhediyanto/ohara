@@ -121,7 +121,7 @@ const Users = {
           })
       })
     },
-    getUser (setex, payload) {
+    findUser (setex, payload) {
       return new Promise((resolve, reject) => {
         axios
           .get(url + `/users/${payload.id}`)

@@ -1,5 +1,5 @@
 <template>
-  <button class="btn-presensi px-2 rounded-3 bs-1px" @click.prevent="handleClick">Check Here</button>
+  <span class="text-primary fs-12px c-pointer" @click.prevent="handleClick">Check Here</span>
 </template>
 
 <script>

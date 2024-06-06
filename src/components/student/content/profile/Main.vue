@@ -11,7 +11,7 @@
         <form-input :label="'phone'" :object="'phoneNumber'" :data="data.phoneNumber" v-on:handleChange="handleChange"/>
         <form-input :label="'address'" :object="'address'" :data="data.address" v-on:handleChange="handleChange"/>
         <div class="row h-45vh d-flex m-0 p-0 px-lg-2 btn-update">
-          <btn-update/>
+          <btn-update v-on:handleClick="update"/>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@ import { mapGetters, mapActions } from 'vuex'
 import PP from '../../../../assets/icon/profile.jpg'
 import FormPhoto from './form/Form-Photo.vue'
 import FormInput from './form/Form-Input.vue'
-import BtnUpdate from './button/update.vue'
+import BtnUpdate from './button/Update.vue'
 
 export default {
   name: 'Main-Profile-Student',
@@ -48,9 +48,9 @@ export default {
     this.user()
   },
   methods: {
-    ...mapActions(['getUser', 'updateUser']),
+    ...mapActions(['findUser', 'updateUser']),
     user () {
-      this.getUser({ id: this.userId })
+      this.findUser({ id: this.userId })
         .then((res) => {
           this.data = res.data.data[0]
         })
@@ -69,6 +69,7 @@ export default {
       this.updateUser(data)
         .then((res) => {
           alert('update sukses')
+          this.user()
         })
     },
     handleUpdate () {

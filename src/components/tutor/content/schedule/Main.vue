@@ -22,7 +22,7 @@
       </div>
       <div class="col-12 col-lg-3 py-2 border border-3 rounded-4">
         <div class="d-flex justify-content-center mb-3 text-white ts-dark"><b>INFORMASI</b></div>
-        <div><b>Tutor: {{ select.tutor }}</b></div>
+        <div><b>Student: {{ select.student }}</b></div>
         <div><b>Hari: {{ select.day }}</b></div>
         <div><b>Waktu: {{ select.time }}</b></div>
         <div><b>Product: {{ select.product }}</b></div>
@@ -38,12 +38,12 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'Main-Schedule-Student',
+  name: 'Main-Schedule-Tutor',
   data () {
     return {
-      title: 'SCHEDULE STUDENT',
+      title: 'SCHEDULE TUTOR',
       select: {
-        tutor: '',
+        student: '',
         day: '',
         time: '',
         product: '',
@@ -79,7 +79,7 @@ export default {
       'findPacket'
     ]),
     handleGetSchedule () {
-      this.getSchedules({ studentId: this.userId, status: 'Ongoing' })
+      this.getSchedules({ tutorId: this.userId, status: 'Ongoing' })
         .then((res) => {
           const data = res.data.data
           data.map((item) => {
@@ -96,9 +96,9 @@ export default {
     },
     handleClick (data) {
       this.select = data
-      this.findUser({ id: data.tutorId })
+      this.findUser({ id: data.studentId })
         .then((res) => {
-          this.select.tutor = res.data.data[0].username
+          this.select.student = res.data.data[0].username
         })
       this.findPacket({ id: data.productId })
         .then((res) => {

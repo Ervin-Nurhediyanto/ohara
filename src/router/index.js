@@ -107,9 +107,14 @@ const routes = [
         component: () => import('../views/tutor/Module.vue')
       },
       {
-        path: '/jadwal-tutor',
-        name: 'Jadwal-Tutor',
-        component: () => import('../views/tutor/Jadwal.vue')
+        path: '/presence-tutor',
+        name: 'Presence-Tutor',
+        component: () => import('../views/tutor/Presence.vue')
+      },
+      {
+        path: '/schedule-tutor',
+        name: 'Schedule-Tutor',
+        component: () => import('../views/tutor/Schedule.vue')
       }
     ]
   },

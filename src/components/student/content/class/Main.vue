@@ -7,11 +7,13 @@
       <div v-if="isPresensi" class="h-5vh d-flex align-items-center bg-dark text-white">
         <b class="c-pointer" @click.prevent="handleBack">BACK</b>
       </div>
-      <table class="h-5vh">
-        <header-main v-if="!isPresensi"/>
-        <header-presensi v-else/>
-        <data-main v-if="!isPresensi" v-on:handlePresensi="handlePresensi"/>
-        <data-presensi v-else v-for="i in dataPresensi.length" :key="i" :no="i"/>
+      <table v-if="!isPresensi" class="h-5vh">
+        <header-main/>
+        <data-main v-for="i in classes.length" :key="i" :index="i" :data="classes[i-1]" v-on:handlePresensi="handlePresensi"/>
+      </table>
+      <table v-else class="h-5vh">
+        <header-presensi />
+        <data-presensi v-for="i in dataPresensi.length" :key="i" :no="i"/>
       </table>
       <div class="h-80vh"></div>
     </div>
@@ -19,6 +21,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import HeaderMain from './header/Main.vue'
 import HeaderPresensi from './header/Presensi.vue'
 import DataMain from './data/Main.vue'
@@ -30,7 +33,9 @@ export default {
     return {
       title: 'CLASS STUDENT',
       isPresensi: false,
+      classes: [],
       dataPresensi: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+      // dataPresensi: []
     }
   },
   components: {
@@ -39,8 +44,23 @@ export default {
     DataMain,
     DataPresensi
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      userId: 'userId'
+    })
+  },
+  mounted () {
+    this.handleClass()
+  },
   methods: {
+    ...mapActions(['getClasses']),
+    handleClass () {
+      const data = { studentId: this.userId }
+      this.getClasses(data)
+        .then((res) => {
+          this.classes = res.data.data
+        })
+    },
     handlePresensi () {
       this.isPresensi = !this.isPresensi
     },
