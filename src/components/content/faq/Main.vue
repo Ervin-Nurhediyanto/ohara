@@ -5,7 +5,7 @@
         <b class="fs-1">Tanya Jawab</b>
       </div>
       <div class="d-flex h-120vh justify-content-center">
-        <div class="col-10 col-lg-5 h-35vh mt-3 rounded bs-3px overflow scrollbar-none">
+        <div class="col-10 col-lg-5 faq mt-3 rounded bs-3px overflow scrollbar-none">
           <div v-for="i in faqs.q.length" :key="i" class="p-2">
             <question
               :index="i-1"
@@ -13,7 +13,10 @@
               :symbol="faqs.btn"
               class="ts-white"
               v-on:handleClick="showAnswer"/>
-            <answer v-if="faqs.isAns[i - 1]" :answer="faqs.a[i - 1]"/>
+            <answer
+              v-if="faqs.isAns[i - 1]"
+              class="ts-dark"
+              :answer="faqs.a[i - 1]"/>
           </div>
         </div>
       </div>
@@ -71,3 +74,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.faq {
+  height: 50vh;
+}
+
+@media (min-width: 1200px) {
+  .faq {
+    height: 35vh;
+  }
+}
+</style>

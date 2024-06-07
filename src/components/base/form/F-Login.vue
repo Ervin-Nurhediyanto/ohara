@@ -1,33 +1,68 @@
 <template>
-  <form class="">
+  <!-- <form class="">
     <p class="logo ts-white">Ohara Bimbel</p>
     <input type="text" placeholder="Username" required="" v-model="form.username">
     <input type="password" placeholder="Password" required="" v-model="form.password">
     <button class="login" @click.prevent="handleLogin">Log In</button>
     <hr/>
     <button class="create-account" @click.prevent="handleRegister">Create New Account</button>
-  </form>
+  </form> -->
+  <div class="form-login">
+    <form-auth
+      :inputs="inputs"
+      :title="'Ohara Bimbel'"
+      :text="'Login'"
+      v-on:handleChange="handleChange"
+      v-on:handleSubmit="handleSubmit"
+    />
+    <button-submit
+      :text="'Register'"
+      class="my-2"
+      v-on:handleClick="handleRegister"
+    />
+  </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import FormAuth from './F-Auth.vue'
+import ButtonSubmit from '../button/Button-Submit.vue'
 
 export default {
-  name: 'Template-Form-Login',
-  props: ['audio'],
+  name: 'Form-Login',
   data () {
     return {
       form: {
         username: '',
         password: ''
-      }
+      },
+      inputs: [
+        {
+          id: 'username',
+          type: 'text',
+          name: 'username',
+          placeholder: 'Username'
+        },
+        {
+          id: 'password',
+          type: 'password',
+          name: 'password',
+          placeholder: 'Password'
+        }
+      ]
     }
   },
-  components: {},
+  components: {
+    FormAuth,
+    ButtonSubmit
+  },
   computed: {},
   methods: {
     ...mapActions(['login', 'findRole']),
-    handleLogin () {
+    handleChange (data) {
+      this.form[data.name] = data.data
+    },
+    handleSubmit () {
       this.login(this.form)
         .then((res) => {
           this.handleRole(res.data.data.roleId)
@@ -39,18 +74,13 @@ export default {
     handleRole (id) {
       this.findRole(id)
         .then((res) => {
-          // const role = result[0].data.data[0].name
           this.handleRouter(res.data.data[0].name)
         })
     },
     handleRouter (role) {
-      // this.audio.pause()
       this.$router.replace({
         name: `Dashboard-${role}`
       })
-    },
-    pageRefresh () {
-      this.$router.go(0)
     },
     handleRegister () {
       this.$router.replace({
@@ -62,7 +92,10 @@ export default {
 </script>
 
 <style scoped>
-.logo {
+.form-login {
+  z-index: 1000;
+}
+/* .logo {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   text-align: center;
@@ -140,5 +173,5 @@ form .create-account:hover {
     margin-top: 50px;
     margin-left: 100px;
   }
-}
+} */
 </style>

@@ -2,33 +2,30 @@
   <div class="row h-120vh m-0 p-0">
     <div class="row m-0 p-0">
       <div class="d-flex bimbel justify-content-center align-items-end">
-        <span class="display-1 ff-fantasy ts-white">BIMBEL OHARA</span>
+        <span class="display-1 ff-fantasy ts-dark text-white">BIMBEL OHARA</span>
       </div>
       <div class="d-flex h-5vh justify-content-center">
-        <span class="fs-1 ff-Impact ts-white">Persiapkan Masa Depanmu</span>
+        <span class="fs-1 ff-Impact ts-dark text-white">Persiapkan Masa Depanmu</span>
       </div>
       <div class="d-flex row h-10vh m-0 p-0 justify-content-center">
-        <div class="d-flex col-4 col-sm-4 col-lg-1 h-5vh m-lg-1 mt-lg-3 mx-1 rounded-4 justify-content-center align-items-center box-shadow-2px c-pointer bg-white"
+        <div class="d-flex col-8 col-sm-8 col-lg-2 h-6vh m-lg-1 mt-lg-3 mx-1 rounded-4 justify-content-center align-items-center box-shadow-2px c-pointer bg-white"
         @click.prevent="handleRegister">
-          <b class="fs-12px">Daftar Sekarang</b>
+          <b class="fs-20px">Daftar Sekarang</b>
         </div>
       </div>
-      <div class="h-35vh"></div>
+      <div class="space"></div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'Content-Home-Main',
   props: ['isMenuBar'],
   data () {
-    return {
-    }
+    return {}
   },
-  components: {
-  },
+  components: {},
   methods: {
     handleMenuBar () {
       this.$emit('handleMenuBar')
@@ -50,12 +47,18 @@ export default {
   font-size: 10px
 }
 .bimbel {
-  height: 30vh;
+  height: 50vh;
+}
+.space {
+  height: 45vh;
 }
 
 @media (min-width: 1200px) {
   .bimbel {
     height: 50vh;
+  }
+  .space {
+    height: 35vh;
   }
 }
 </style>
