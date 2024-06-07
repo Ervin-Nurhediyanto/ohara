@@ -1,12 +1,4 @@
 <template>
-  <!-- <form class="">
-    <p class="logo ts-white">Ohara Bimbel</p>
-    <input type="text" placeholder="Username" required="" v-model="form.username">
-    <input type="password" placeholder="Password" required="" v-model="form.password">
-    <button class="login" @click.prevent="handleLogin">Log In</button>
-    <hr/>
-    <button class="create-account" @click.prevent="handleRegister">Create New Account</button>
-  </form> -->
   <div class="form-login">
     <form-auth
       :inputs="inputs"
@@ -95,83 +87,4 @@ export default {
 .form-login {
   z-index: 1000;
 }
-/* .logo {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  text-align: center;
-  color: #1877f2;
-  font-weight: 700;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  padding: 1.5rem 1rem;
-  width: 300px;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-}
-
-form input {
-  outline: none;
-  padding: 0.4rem 0.5rem;
-  margin-bottom: 0.8rem;
-  font-size: 0.9rem;
-}
-
-form input:focus {
-  border: 1.8px solid #1877f2;
-}
-
-form .login {
-  outline: none;
-  border: none;
-  background: #1877f2;
-  padding: 0.8rem 1rem;
-  border-radius: 0.4rem;
-  font-size: 0.9rem;
-  color: #fff;
-}
-
-form .login:hover {
-  background: #0f71f1;
-  cursor: pointer;
-}
-
-form a {
-  text-decoration: none;
-  text-align: center;
-  font-size: 0.9rem;
-  padding-top: 0.8rem;
-  color: #1877f2;
-}
-
-form hr {
-  background: #f7f7f7;
-  margin: 0.5rem;
-}
-
-form .create-account {
-  outline: none;
-  border: none;
-  background: #06b909;
-  padding: 0.8rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  color: #fff;
-  width: 75%;
-  margin: 0 auto;
-}
-
-form .create-account:hover {
-  background: #03ad06;
-  cursor: pointer;
-}
-
-@media (min-width: 1200px) {
-  form {
-    margin-top: 50px;
-    margin-left: 100px;
-  }
-} */
 </style>

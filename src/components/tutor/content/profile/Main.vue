@@ -11,7 +11,9 @@
         <form-input :label="'phone'" :object="'phoneNumber'" :data="data.phoneNumber" v-on:handleChange="handleChange"/>
         <form-input :label="'address'" :object="'address'" :data="data.address" v-on:handleChange="handleChange"/>
         <div class="row h-45vh d-flex m-0 p-0 px-lg-2 btn-update">
-          <btn-update :text="'UPDATE'" v-on:handleClick="update"/>
+          <div class="col-lg-2">
+            <btn-update :text="'UPDATE'" v-on:handleClick="update"/>
+          </div>
         </div>
       </div>
     </div>
