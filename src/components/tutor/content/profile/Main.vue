@@ -32,7 +32,13 @@ export default {
   data () {
     return {
       title: 'PROFILE STUDENT',
-      data: {},
+      data: {
+        username: this.username,
+        email: this.email,
+        phoneNumber: this.phoneNumber,
+        address: this.address,
+        image: this.image
+      },
       photo: PP
     }
   },
@@ -43,7 +49,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      userId: 'userId'
+      userId: 'userId',
+      username: 'username',
+      email: 'email',
+      phoneNumber: 'phoneNumber',
+      address: 'address',
+      image: 'image'
     })
   },
   mounted () {

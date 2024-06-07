@@ -13,6 +13,9 @@ const Users = {
     user: localStorage.getItem('user') || null,
     userId: localStorage.getItem('userId') || null,
     username: localStorage.getItem('username') || null,
+    email: localStorage.getItem('email') || null,
+    phoneNumber: localStorage.getItem('phoneNumber') || null,
+    address: localStorage.getItem('address') || null,
     image: localStorage.getItem('image') || null,
     token: localStorage.getItem('token') || null
   },
@@ -29,6 +32,15 @@ const Users = {
     username (state) {
       return state.username
     },
+    email (state) {
+      return state.email
+    },
+    phoneNumber (state) {
+      return state.phoneNumber
+    },
+    address (state) {
+      return state.address
+    },
     image (state) {
       return state.image
     }
@@ -42,6 +54,15 @@ const Users = {
     },
     setUsername (state, payload) {
       state.username = payload
+    },
+    setEmail (state, payload) {
+      state.email = payload
+    },
+    setPhoneNumber (state, payload) {
+      state.phoneNumber = payload
+    },
+    setAddress (state, payload) {
+      state.address = payload
     },
     setImage (state, payload) {
       state.image = payload
@@ -83,14 +104,20 @@ const Users = {
           .post(url + '/users/login', payload)
           .then(res => {
             const user = res.data.data
-            setex.commit('setUser', user)
+            // setex.commit('setUser', user)
             setex.commit('setUserId', user)
             setex.commit('setUsername', user.username)
+            setex.commit('setEmail', user.email)
+            setex.commit('setPhoneNumber', user.phoneNumber)
+            setex.commit('setAddress', user.address)
             setex.commit('setImage', user.image)
-            localStorage.setItem('user', user)
+            // localStorage.setItem('user', user)
             localStorage.setItem('userId', user._id)
-            localStorage.setItem('image', user.image)
             localStorage.setItem('username', user.username)
+            localStorage.setItem('email', user.email)
+            localStorage.setItem('phoneNumber', user.phoneNumber)
+            localStorage.setItem('address', user.address)
+            localStorage.setItem('image', user.image)
             localStorage.setItem('token', user.token)
             resolve(res)
             console.log(res)

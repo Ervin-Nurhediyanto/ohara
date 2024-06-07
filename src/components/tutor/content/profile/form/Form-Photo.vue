@@ -42,7 +42,7 @@ export default {
         id: this.data._id,
         data: formData
       }
-
+      console.log(data)
       this.updateUser(data)
         .then((res) => {
           console.log(res.data)
