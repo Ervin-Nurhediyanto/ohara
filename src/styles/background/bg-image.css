@@ -21,11 +21,11 @@
   background-repeat: no-repeat;
 }
 
-.bg-paper {
+/* .bg-paper {
   background-image: url(../../assets/icon/paper.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */
 
 .bg-auth {
   background-image: url(../../assets/bg/bg-04.png);

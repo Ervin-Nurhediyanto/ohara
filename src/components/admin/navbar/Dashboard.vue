@@ -18,7 +18,7 @@ export default {
   methods: {
     handleDashboard () {
       this.$router.replace({
-        name: 'Dashboard-Admin'
+        name: 'Dashboard-ADMIN'
       })
     }
   }

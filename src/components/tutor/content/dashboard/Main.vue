@@ -6,6 +6,7 @@
     <div class="row h-90vh m-0 p-0 overflow scrollbar-none">
       <IcoPro/>
       <IcoMod/>
+      <IcoPre/>
       <IcoJad/>
     </div>
   </div>
@@ -14,6 +15,7 @@
 <script>
 import IcoPro from './cards/Card-Profile.vue'
 import IcoMod from './cards/Card-Module.vue'
+import IcoPre from './cards/Card-Presence.vue'
 import IcoJad from './cards/Card-Jadwal.vue'
 
 export default {
@@ -26,6 +28,7 @@ export default {
   components: {
     IcoPro,
     IcoMod,
+    IcoPre,
     IcoJad
   },
   computed: {},

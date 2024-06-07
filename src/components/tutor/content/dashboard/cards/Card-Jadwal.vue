@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 col-lg-4 h-50vh p-3">
+  <div class="col-12 col-lg-3 h-50vh p-3">
     <div class="d-flex h-40vh p-2 justify-content-center align-items-center c-pointer">
       <img
         :src="image"
