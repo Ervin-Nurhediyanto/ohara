@@ -14,6 +14,7 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'Template-Form-Login',
+  props: ['audio'],
   data () {
     return {
       form: {
@@ -43,21 +44,10 @@ export default {
         })
     },
     handleRouter (role) {
-      if (role === 'ADMIN') {
-        this.$router.replace({
-          name: 'Dashboard-Admin'
-        })
-      }
-      if (role === 'TUTOR') {
-        this.$router.replace({
-          name: 'Dashboard-Tutor'
-        })
-      }
-      if (role === 'STUDENT') {
-        this.$router.replace({
-          name: 'Dashboard-Student'
-        })
-      }
+      // this.audio.pause()
+      this.$router.replace({
+        name: `Dashboard-${role}`
+      })
     },
     pageRefresh () {
       this.$router.go(0)

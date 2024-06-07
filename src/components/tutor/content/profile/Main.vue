@@ -11,7 +11,7 @@
         <form-input :label="'phone'" :object="'phoneNumber'" :data="data.phoneNumber" v-on:handleChange="handleChange"/>
         <form-input :label="'address'" :object="'address'" :data="data.address" v-on:handleChange="handleChange"/>
         <div class="row h-45vh d-flex m-0 p-0 px-lg-2 btn-update">
-          <btn-update v-on:handleClick="update"/>
+          <btn-update :text="'UPDATE'" v-on:handleClick="update"/>
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@ import { mapGetters, mapActions } from 'vuex'
 import PP from '../../../../assets/icon/profile.jpg'
 import FormPhoto from './form/Form-Photo.vue'
 import FormInput from './form/Form-Input.vue'
-import BtnUpdate from './button/Update.vue'
+import BtnUpdate from '../../../base/button/Button-Submit.vue'
 
 export default {
   name: 'Main-Profile-Tutor',

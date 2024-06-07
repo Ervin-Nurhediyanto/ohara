@@ -57,12 +57,12 @@ const routes = [
     name: 'Admin',
     component: () => import('../views/admin/Main.vue'),
     redirect: {
-      name: 'Dashboard-Admin'
+      name: 'Dashboard-ADMIN'
     },
     children: [
       {
         path: '/dashboard-Admin',
-        name: 'Dashboard-Admin',
+        name: 'Dashboard-ADMIN',
         component: () => import('../views/admin/Dashboard.vue')
       },
       {
@@ -88,12 +88,12 @@ const routes = [
     name: 'Tutor',
     component: () => import('../views/tutor/Main.vue'),
     redirect: {
-      name: 'Dashboard-Tutor'
+      name: 'Dashboard-TUTOR'
     },
     children: [
       {
         path: '/dashboard-tutor',
-        name: 'Dashboard-Tutor',
+        name: 'Dashboard-TUTOR',
         component: () => import('../views/tutor/Dashboard.vue')
       },
       {
@@ -124,12 +124,12 @@ const routes = [
     name: 'Student',
     component: () => import('../views/student/Main.vue'),
     redirect: {
-      name: 'Dashboard-Student'
+      name: 'Dashboard-STUDENT'
     },
     children: [
       {
         path: '/dashboard-student',
-        name: 'Dashboard-Student',
+        name: 'Dashboard-STUDENT',
         component: () => import('../views/student/Dashboard.vue')
       },
       {

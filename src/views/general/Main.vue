@@ -7,15 +7,16 @@
 </template>
 
 <script>
-import sound from '../../assets/bgm/bgm-home.mp3'
+// import sound from '../../assets/bgm/bgm-home.mp3'
 import Navbar from '../../components/navbar/Main.vue'
 import Footer from '../../components/footer/Main.vue'
 
 export default {
   name: 'Main-General',
+  props: ['audio'],
   data () {
     return {
-      sound: sound
+      // sound: sound
     }
   },
   components: {
@@ -23,9 +24,10 @@ export default {
     Footer
   },
   mounted () {
-    const audio = new Audio(this.sound)
-    audio.play()
-    audio.loop = true
+    // const audio = new Audio(this.sound)
+    // audio.play()
+    // audio.loop = true
+    this.audio.play()
   },
   methods: {}
 }

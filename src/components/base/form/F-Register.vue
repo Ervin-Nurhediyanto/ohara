@@ -46,6 +46,9 @@ export default {
         this.insertUser(this.form)
           .then((res) => {
             alert('REGISTER SUKSES')
+            this.$router.replace({
+              name: 'Login'
+            })
           })
           .catch((err) => {
             console.log(err)

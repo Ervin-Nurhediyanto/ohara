@@ -14,7 +14,6 @@ const Users = {
     userId: localStorage.getItem('userId') || null,
     username: localStorage.getItem('username') || null,
     image: localStorage.getItem('image') || null,
-    users: [],
     token: localStorage.getItem('token') || null
   },
   getters: {
@@ -32,9 +31,6 @@ const Users = {
     },
     image (state) {
       return state.image
-    },
-    users (state) {
-      return state.users
     }
   },
   mutations: {
@@ -49,9 +45,6 @@ const Users = {
     },
     setImage (state, payload) {
       state.image = payload
-    },
-    setUsers (state, payload) {
-      state.users = payload
     }
   },
   actions: {

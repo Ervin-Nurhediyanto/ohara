@@ -10,6 +10,7 @@ import Navbar from '../../components/student/navbar/Main.vue'
 
 export default {
   name: 'Main-Student',
+  props: ['audio'],
   data () {
     return {}
   },
@@ -17,7 +18,9 @@ export default {
     Navbar
   },
   computed: {},
-  mounted () {},
+  mounted () {
+    this.audio.pause()
+  },
   methods: {}
 }
 

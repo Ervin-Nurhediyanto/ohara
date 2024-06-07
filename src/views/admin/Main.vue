@@ -11,6 +11,7 @@ import Navbar from '../../components/admin/navbar/Main.vue'
 
 export default {
   name: 'Main-Admin',
+  props: ['audio'],
   data () {
     return {
       roles: {}
@@ -21,6 +22,7 @@ export default {
   },
   computed: {},
   mounted () {
+    this.audio.pause()
     let roleTutor = ''
     let roleStudent = ''
     this.getRoles()
