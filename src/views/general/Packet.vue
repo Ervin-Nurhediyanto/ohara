@@ -5,15 +5,17 @@
 </template>
 
 <script>
-import Content from '../../components/content/product/Main.vue'
+import Content from '../../components/content/packet/Main.vue'
 
 export default {
-  name: 'Product',
+  name: 'Packet',
   data () {
     return {}
   },
   components: {
     Content
+  },
+  methods: {
   }
 }
 </script>

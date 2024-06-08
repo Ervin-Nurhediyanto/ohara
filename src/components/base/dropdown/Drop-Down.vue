@@ -33,13 +33,34 @@ export default {
 }
 </script>
 
-<style>
-.Class-Options .menu-item svg {
+<style scoped>
+.menu-item {
+  color: #FFF;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  transition: 0.4s;
+}
+
+.menu-item.active,
+.menu-item:hover {
+  background-color: #444;
+  border-bottom-color: #FF5858;
+}
+
+.menu-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu-item svg {
   width: 10px;
   margin-left: 10px;
 }
 
-.Class-Options .menu-item .sub-menu {
+.menu-item .sub-menu {
   position: absolute;
   background-color: #222;
   top: calc(100% + 18px);

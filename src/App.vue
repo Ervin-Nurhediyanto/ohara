@@ -20,9 +20,6 @@ export default {
   mounted () {
     this.audio = new Audio(this.sound)
     this.audio.loop = true
-    // const audio = new Audio(this.sound)
-    // audio.play()
-    // audio.loop = true
   },
   methods: {}
 }

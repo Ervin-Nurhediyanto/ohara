@@ -1,45 +1,49 @@
 <template>
   <div class="row h-100vh bg-grey overflow scrollbar-none">
     <div class="col-12 h-5vh d-flex justify-content-center align-items-center text-white bg-dark">
-      <span><b>PILIH PRODUK</b></span>
+      <span><b>{{ title }}</b></span>
     </div>
-    <div class="col-12 col-lg-3 h-30vh m-0 p-0" v-for="i in images.length" :key="i">
-      <img :src="images[i-1]" class="img c-pointer" alt="" @click.prevent="handleSelectProduct(packets[i-1])">
+    <div class="col-12 col-lg-3 h-30vh m-0 p-0" v-for="product in products" :key="product">
+      <image-product
+        :image="product.image"
+        :data="product"
+        v-on:handleClick="selectProduct"
+      />
     </div>
     <div class="h-65vh"></div>
   </div>
 </template>
 
 <script>
-import Product01 from '../../../assets/card/Private_Offline.png'
-import Product02 from '../../../assets/card/Private_Online.png'
-import Product03 from '../../../assets/card/Kelas_Offline.png'
-import Product04 from '../../../assets/card/Voucher_Tugas.png'
+import { mapActions } from 'vuex'
+import ImageProduct from '../../base/image/Img-Product.vue'
 
 export default {
   name: 'Product-Main',
   data () {
     return {
-      images: [
-        Product01,
-        Product02,
-        Product03,
-        Product04
-      ],
-      packets: [
-        'Private-Offline',
-        'Private-Online',
-        'Kelas-Offline',
-        'Voucher-Tugas'
-      ]
+      title: 'PILIH PRODUK',
+      products: []
     }
   },
-  components: {},
+  components: {
+    ImageProduct
+  },
+  mounted () {
+    this.handleProduct()
+  },
   methods: {
-    handleSelectProduct (packet) {
+    ...mapActions(['getProducts']),
+    handleProduct () {
+      this.getProducts()
+        .then((res) => {
+          this.products = res.data.data
+        })
+    },
+    selectProduct (data) {
       this.$router.replace({
-        name: 'Product-Selected',
-        query: { packet: packet }
+        name: 'Packet',
+        query: { packet: data._id }
       })
     }
   }
