@@ -7,14 +7,16 @@
       <Dropdown title="PILIH KELAS" :items="services" v-on:handleClick="handlePacket"/>
     </div>
     <div class="row h-90vh m-0 p-0 justify-content-center overflow scrollbar-none">
-      <image-packet
+      <div
         v-for="packet in packets"
         :key="packet"
-        :data="packet"
-        :image="packet.image"
-        class="col-11 col-lg-3 h-30vh m-1"
-        v-on:handleClick="handleClick"
-      />
+        class="col-11 col-lg-3 h-30vh m-1">
+        <image-packet
+          :data="packet"
+          :image="packet.image"
+          v-on:handleClick="handleClick"
+        />
+      </div>
     </div>
   </div>
 </template>
