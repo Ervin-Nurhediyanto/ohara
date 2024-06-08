@@ -2,14 +2,14 @@
   <iframe
     allowfullscreen
     :src="video"
-    class="video-module bs-3px rounded-4">
+    class="video bs-3px rounded-4">
   </iframe>
 </template>
 
 <script>
 
 export default {
-  name: 'Video-Module-Tutor',
+  name: 'Iframe-Module',
   props: ['video'],
   data () {
     return {}
@@ -21,13 +21,13 @@ export default {
 </script>
 
 <style scoped>
-.video-module {
+.video {
   width: 300px;
   height: 200px;
 }
 
 @media screen and (min-width: 800px) {
-  .video-module {
+  .video {
   width: 390px;
   height: 300px;
   }

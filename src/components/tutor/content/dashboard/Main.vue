@@ -1,35 +1,45 @@
 <template>
-  <div class="m-0 p-0">
-    <div class="d-flex h-10vh justify-content-center align-items-center text-white ts-dark">
-      <h3><b>{{ title }}</b></h3>
-    </div>
-    <div class="row h-90vh m-0 p-0 overflow scrollbar-none">
-      <IcoPro/>
-      <IcoMod/>
-      <IcoPre/>
-      <IcoJad/>
-    </div>
-  </div>
+  <Content :title="title" :cards="cards"/>
 </template>
 
 <script>
-import IcoPro from './cards/Card-Profile.vue'
-import IcoMod from './cards/Card-Module.vue'
-import IcoPre from './cards/Card-Presence.vue'
-import IcoJad from './cards/Card-Jadwal.vue'
+import Profile from '../../../../assets/icon/profile.jpg'
+import Module from '../../../../assets/icon/module.jpg'
+import Presence from '../../../../assets/icon/presence.jpg'
+import Schedule from '../../../../assets/icon/schedule.jpg'
+import Content from '../../../base/content/C-Dashboard.vue'
 
 export default {
   name: 'Main-Dashboard-Tutor',
   data () {
     return {
-      title: 'DASHBOARD TUTOR'
+      title: 'DASHBOARD TUTOR',
+      cards: [
+        {
+          title: 'PROFILE',
+          name: 'Profile-Tutor',
+          image: Profile
+        },
+        {
+          title: 'MODULE',
+          name: 'Module-Tutor',
+          image: Module
+        },
+        {
+          title: 'PRESENCE',
+          name: 'Presence-Tutor',
+          image: Presence
+        },
+        {
+          title: 'SCHEDULE',
+          name: 'Schedule-Tutor',
+          image: Schedule
+        }
+      ]
     }
   },
   components: {
-    IcoPro,
-    IcoMod,
-    IcoPre,
-    IcoJad
+    Content
   },
   computed: {},
   methods: {}

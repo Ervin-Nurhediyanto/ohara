@@ -1,7 +1,7 @@
 <template>
   <div class="row m-0 p-0 h-100vh overflow scrollbar-none bg-grey">
     <Navbar/>
-    <router-view class="col-10"/>
+    <router-view class="col-10" v-on:handleUpdate="handleUpdate"/>
   </div>
 </template>
 

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import IcoJadwal from '../../../../../assets/icon/jadwal.jpg'
+import IcoJadwal from '../../../../../assets/icon/schedule.jpg'
 
 export default {
   name: 'Card-Jadwal-Tutor',
