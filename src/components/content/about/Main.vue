@@ -1,17 +1,11 @@
 <template>
-  <!-- <div class="row h-120vh m-0 p-0 overflow scrollbar-none bg-about"> -->
-  <div class="row h-120vh m-0 p-0 overflow scrollbar-none bg-grey">
+  <div class="row h-140vh m-0 p-0 overflow scrollbar-none bg-grey">
     <div class="d-flex row m-0 p-0 justify-content-center">
-      <div class="col-3 d-flex align-items-center">
-        <div class="w-100 mt-5 pt-5">
-          <!-- <button class="w-100 h-10vh my-2">About Us</button>
-          <button class="w-100 h-10vh my-2">Visi</button>
-          <button class="w-100 h-10vh my-2">Misi</button> -->
-        </div>
+      <div class="col-12 col-lg-7 about-us bg-about">
+        <text-desc/>
+        <text-visi/>
+        <text-misi/>
       </div>
-      <text-desc/>
-      <text-visi/>
-      <text-misi/>
     </div>
   </div>
 </template>
@@ -33,3 +27,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.about-us {
+  padding-top: 10px;
+}
+
+@media (min-width: 1200px) {
+  .about-us {
+    padding-top: 100px;
+  }
+}
+</style>

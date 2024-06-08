@@ -54,6 +54,7 @@ export default {
     handleSubmit () {
       this.insertPacket({ name: 'packetname', description: 'packetdesc', productId: this.productId })
         .then((res) => {
+          console.log(this.form)
           const formData = new FormData()
           formData.append('name', this.form.name)
           formData.append('description', this.form.description)
@@ -70,7 +71,6 @@ export default {
 
           this.updatePacket(data)
             .then((res) => {
-              console.log(res.data)
               alert('Add Packet sukses')
               this.$emit('update')
             })

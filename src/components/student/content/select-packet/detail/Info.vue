@@ -2,11 +2,9 @@
 <div class="card">
   <div class="content">
     <p class="heading">{{ product.name }}</p>
-    <!-- <p class="heading">{{ product.packet.name }}</p> -->
-    <!-- <p v-for="i in product.packet.desc.length" :key="i" class="para"> -->
-    <p v-for="i in product.points.length" :key="i" class="para">
-      * {{ product.points[i-1] }}
-    </p>
+    <div v-for="i in product.points.length" :key="i" class="para m-0">
+      <span class="fs-16px">{{ product.points[i-1] }}</span>
+    </div>
   </div>
 </div>
 </template>

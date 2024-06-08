@@ -12,7 +12,7 @@
     <div v-if="isPacket && !isInsert">
       <detail-product v-if="!isInsertPacket && !isEditPacket" :product="product" v-on:update="setProduct"/>
       <div class="row m-0 p-1 d-flex justify-content-between text-white bg-dark">
-        <div class="col-7 col-lg-2"><b>PACKET {{ product.name }}</b></div>
+        <div class="col-7 col-lg-3"><b>PACKET {{ product.name }}</b></div>
         <div class="col-1 col-lg-2 d-flex justify-content-end c-pointer" @click.prevent="addPacket">{{ btnPacket }}</div>
       </div>
       <packet v-if="!isInsertPacket && !isEditPacket" :packets="packets" v-on:handleClick="detailPacket"/>
@@ -76,7 +76,14 @@ export default {
     handlePacket () {
       this.getPackets({ productId: this.product._id })
         .then((res) => {
-          this.packets = res.data.data
+          let packets = []
+          packets = res.data.data
+          for (let i = 0; i < packets.length; i++) {
+            if (packets[i].points.length < 2) {
+              packets[i].points = packets[i].points[0].split(',')
+            }
+          }
+          this.packets = packets
         })
     },
     addProduct () {

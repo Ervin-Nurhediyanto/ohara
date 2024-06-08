@@ -16,14 +16,10 @@ export default {
     return {
       title: 'Misi',
       text: [
-        'Memadukan metode pembelajaran yang efektif dan teknologi mutakhir untuk hasil belajar maksimal.',
         'Menyediakan program bimbingan belajar yang terstruktur dan berkualitas untuk tingkat SD hingga SMA/K.',
         'Merekrut dan mengembangkan tim pengajar berkualitas dan berpengalaman.',
-        'Menyediakan fasilitas belajar yang nyaman dan kondusif, baik tatap muka maupun online.',
-        'Menawarkan layanan konseling untuk mendukung strategi belajar siswa.',
         'Terus berinovasi dan melakukan penelitian agar metode pembelajaran tetap relevan dan responsif terhadap perkembangan pendidikan dan teknologi.',
-        'Mendorong kerjasama antara orang tua, tutor, dan siswa untuk lingkungan belajar yang inklusif.',
-        'Menjadi mitra andal bagi sekolah dan lembaga pendidikan dalam meningkatkan mutu pendidikan di Indonesia.'
+        'Mendorong kerjasama antara orang tua, tutor, dan siswa untuk lingkungan belajar yang inklusif.'
       ]
     }
   },
