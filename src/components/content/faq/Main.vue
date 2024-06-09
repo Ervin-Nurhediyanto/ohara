@@ -15,7 +15,7 @@
               v-on:handleClick="showAnswer"/>
             <answer
               v-if="faqs.isAns[i - 1]"
-              class="ts-dark"
+              class="ts-dark answer"
               :answer="faqs.a[i - 1]"/>
           </div>
         </div>
@@ -78,6 +78,14 @@ export default {
 <style scoped>
 .faq {
   height: 50vh;
+  background-color: aliceblue;
+  opacity: 0.8;
+  /* opacity: 0.2; */
+}
+
+.answer {
+  background-color: darkslategray;
+  opacity: 0.8;
 }
 
 @media (min-width: 1200px) {
