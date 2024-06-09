@@ -2,7 +2,7 @@
   <div class="row h-120vh m-0 p-0 bg-faq">
     <div class="d-flex row m-0 p-0">
       <div class="d-flex h-10vh justify-content-center">
-        <b class="fs-1">Tanya Jawab</b>
+        <b class="fs-1 ts-white">Tanya Jawab</b>
       </div>
       <div class="d-flex h-120vh justify-content-center">
         <div class="col-10 col-lg-5 faq mt-3 rounded bs-3px overflow scrollbar-none">
