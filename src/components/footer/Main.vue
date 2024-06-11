@@ -1,12 +1,13 @@
 <template>
-  <div class="row m-0 p-0 text-white bg-dark">
+  <!-- <div class="row m-0 p-0 text-white bg-dark"> -->
+  <div class="row m-0 p-0 text-white bg-footer">
     <div class="d-flex row m-0 p-0 h-25vh justify-content-center">
       <div class="col-lg-8 m-0 p-0">
         <div class="row h-20vh m-0 p-0">
           <TFL/>
           <TFC/>
           <TFR/>
-          <div class="d-flex col-lg-12 h-5vh m-0 p-2 justify-content-end bg-dark">
+          <div class="d-flex col-lg-12 h-5vh m-0 p-2 justify-content-end">
             <div class="mx-2">
               <font-awesome-icon :icon="['fab', 'facebook']" />
             </div>

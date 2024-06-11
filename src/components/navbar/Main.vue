@@ -1,6 +1,7 @@
 <template>
   <div class="row m-0 p-0 sticky-top">
-    <header class="m-0 p-0 shadow-md bg-white">
+    <!-- <header class="m-0 p-0 shadow-md bg-white"> -->
+    <header class="m-0 p-0 shadow-md bg-nav">
       <Logo class="" v-on:handleMenu="handleMenu"/>
       <input type="checkbox" name="" class="d-flex d-lg-none mx-2 btn-nav"/>
       <div class="nav">
@@ -96,7 +97,8 @@ header {
   text-decoration: none;
   padding: 0.2em 1.2em 0.9em 1.2em;
   border-radius: 10px 10px 0 0;
-  color: rgb(39, 39, 39);
+  /* color: rgb(39, 39, 39); */
+  color: white;
   transition: all .4s;
   position: relative;
   z-index: 1;

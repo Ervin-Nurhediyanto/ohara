@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex col-12 col-lg-4 m-0 p-0 pt-2 justify-content-center bg-dark">
+  <div class="d-flex col-12 col-lg-4 m-0 p-0 pt-2 justify-content-center">
     <div class="row m-0 p-0">
       <div class="col-12">
         <span class="fs-4">

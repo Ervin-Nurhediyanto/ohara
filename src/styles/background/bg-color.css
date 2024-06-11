@@ -10,3 +10,11 @@
 .bg-transparent {
   background-color: transparent;
 }
+.bg-nav {
+  background-color: #803D38;
+  /* background-color: #AF8260; */
+}
+
+.bg-footer {
+  background-color: #322C2B;
+}
