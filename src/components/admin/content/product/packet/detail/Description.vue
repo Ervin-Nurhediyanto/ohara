@@ -1,5 +1,14 @@
 <template>
-  <textarea name="" id="" cols="30" rows="10" :placeholder="placeholder" v-model="data" @change.prevent="handleChange"></textarea>
+  <textarea
+    name=""
+    id=""
+    cols="30"
+    rows="10"
+    class=""
+    :placeholder="placeholder"
+    v-model="data"
+    @change.prevent="handleChange">
+  </textarea>
 </template>
 
 <script>

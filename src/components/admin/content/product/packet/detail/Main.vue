@@ -25,20 +25,30 @@
       </div>
       <div class="row m-0 p-0 my-1">
         <div class="col-12 col-lg-4"><b>Description</b>:</div>
-        <div class="col-12 col-lg-8"><description :placeholder="packet.description" v-on:handleChange="handleDesc"/></div>
+        <div class="col-12 col-lg-8">
+          <description :placeholder="packet.description" v-on:handleChange="handleDesc"/>
+        </div>
       </div>
     </div>
     <div class="col-12 col-lg-4 m-0 p-0">
       <div class="row m-0 p-0 my-1 pt-3">
         <div class="col-12 col-lg-4"><b>Point</b>:</div>
         <div class="col-12 col-lg-8">
-          <Point v-for="i in packet.points.length" :key="i" class="my-1" :placeholder="`* ${packet.points[i-1]}`" :index="i-1" v-on:handleChange="handlePoint"/>
+          <Point
+            v-for="i in packet.points.length"
+            class="my-1"
+            :key="i"
+            :placeholder="`📌 ${packet.points[i-1]}`"
+            :index="i-1"
+            v-on:handleChange="handlePoint"
+          />
         </div>
       </div>
     </div>
     <div class="row m-0 p-0 my-1 d-flex justify-content-center">
       <div class="col-12 col-lg-4 mt-3 d-flex justify-content-center">
         <button-update :text="'update'" v-on:handleClick="handleUpdate"/>
+        <button-delete :text="'delete'" v-on:handleClick="handleDelete"/>
       </div>
     </div>
   </div>
@@ -46,7 +56,9 @@
 
 <script>
 import { mapActions } from 'vuex'
-import ButtonUpdate from './Button-Submit.vue'
+import ButtonUpdate from '../../../../../base/button/Button-Update.vue'
+import ButtonDelete from '../../../../../base/button/Button-Delete.vue'
+
 import ButtonImage from './Button-Image.vue'
 import Name from './Name.vue'
 import Mapel from './Mapel.vue'
@@ -68,6 +80,7 @@ export default {
   },
   components: {
     ButtonUpdate,
+    ButtonDelete,
     ButtonImage,
     Name,
     Mapel,
@@ -79,7 +92,7 @@ export default {
   computed: {},
   mounted () {},
   methods: {
-    ...mapActions(['updatePacket']),
+    ...mapActions(['updatePacket', 'deletePacket']),
     handleUpdate () {
       const formData = new FormData()
       formData.append('name', this.form.name)
@@ -102,6 +115,14 @@ export default {
           this.$emit('update', data.id)
         })
     },
+    handleDelete () {
+      console.log('DELETE PACKET:', this.packet._id)
+      this.deletePacket({ id: this.packet._id })
+        .then((res) => {
+          alert('DELETE SUKSES')
+          this.$router.go(0)
+        })
+    },
     handleImage (data) {
       this.form.image = data
     },
@@ -122,11 +143,6 @@ export default {
     },
     handlePoint (data) {
       this.form.points = data
-      // if (this.form.points.length < data.index) {
-      //   this.form.points.push(data.data)
-      // } else {
-      //   this.form.points[data.index] = data
-      // }
     }
   }
 }

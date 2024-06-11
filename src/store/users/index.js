@@ -186,6 +186,18 @@ const Users = {
             reject(err)
           })
       })
+    },
+    deleteUser (setex, payload) {
+      return new Promise((resolve, reject) => {
+        axios
+          .delete(url + `/users/${payload.id}`)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
     }
   }
 }

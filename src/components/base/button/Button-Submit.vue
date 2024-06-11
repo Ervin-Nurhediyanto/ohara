@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Button-Update',
+  name: 'Button-Submit',
   props: ['text'],
   data () {
     return {}
