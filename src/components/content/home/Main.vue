@@ -3,11 +3,11 @@
     <div class="row m-0 p-0">
       <div class="d-flex bimbel justify-content-center align-items-end">
         <!-- <span class="display-1 ff-fantasy ts-white text-dark">BIMBEL OHARA</span> -->
-        <span class="fs-111px ff-fantasy ts-white text-dark">BIMBEL OHARA</span>
+        <span class="fs-111px ff-fantasy ts-white-home text-dark">BIMBEL OHARA</span>
       </div>
       <div class="d-flex h-8vh justify-content-center">
         <!-- <span class="fs-1 ff-Impact ts-dark text-white">Persiapkan Masa Depanmu</span> -->
-        <span class="fs-1 ff-georgia ts-dark text-white">Persiapkan Masa Depanmu</span>
+        <span class="fs-1 ff-georgia ts-dark-home text-white">Persiapkan Masa Depanmu</span>
       </div>
       <div class="d-flex row h-10vh m-0 p-0 justify-content-center">
         <div class="d-flex col-8 col-sm-8 col-lg-2 h-6vh m-lg-1 mt-lg-3 mx-1 rounded-4 justify-content-center align-items-center box-shadow-2px c-pointer bg-white"

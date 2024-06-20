@@ -1,7 +1,8 @@
 <template>
   <form action="#" class="form-auth">
-    <h2 class="fs-4 title ts-white">{{ title }}</h2><hr/>
+    <h2 class="pt-3 fs-4 title ts-white">{{ title }}</h2><hr/>
     <input-data
+      class="h-5vh"
       v-for="i in inputs.length"
       :key="i"
       :id="inputs[i-1].id"
@@ -10,7 +11,9 @@
       :placeholder="inputs[i-1].placeholder"
       v-on:handleChange="handleChange"
     />
-    <button-submit :text="text" v-on:handleClick="handleClick"/>
+    <button-submit
+      :text="text"
+      v-on:handleClick="handleClick"/>
   </form>
 </template>
 
@@ -44,7 +47,7 @@ export default {
   text-align: center;
 }
 .title {
-  margin-bottom: 1rem;
+  /* margin-bottom: 0.5rem; */
   font-size: 1.2rem;
   text-align: center;
   color: #1877f2;
